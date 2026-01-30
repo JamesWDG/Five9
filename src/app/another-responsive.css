@@ -1,0 +1,314 @@
+@media (max-width: 1600) {
+    .header .nav-links li a {
+        font-size: 12px;
+    }
+
+    .btn-wrapper {
+        cursor: pointer;
+        width: 215px;
+        height: 45px;
+        font-family: var(--termina-heavy);
+        border: 2px solid red;
+        border-radius: 50px;
+        margin: 0 auto;
+        font-size: 12px;
+        display: flex;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .btn-fill {
+        z-index: 1;
+        background: red;
+        border-radius: 50px;
+        width: 40px;
+        height: 100%;
+        transition: all .4s;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .hero-banner .banner-hd-mini {
+        font-size: 25px;
+        font-family: var(--termina-bold);
+        color: var(--white);
+        opacity: 0;
+        margin-bottom: 7px;
+    }
+
+    .hero-banner .banner-hd,
+    .about-us .banner-hd,
+    .banner-hd,
+    .term-hd,
+    .cta-hd {
+        font-size: 35px;
+    }
+
+    .video-banner .banner-para {
+        color: var(--white);
+        font-size: 16px;
+        font-family: var(--termina-light);
+        opacity: 0;
+        margin-bottom: 39px;
+        transform: translateY(300px);
+    }
+
+    .hero-banner {
+        text-align: center;
+        padding-top: 105px;
+    }
+
+    .video-banner .banner-para {
+        color: var(--white);
+        font-size: 16px;
+        font-family: var(--termina-light);
+        opacity: 0;
+        margin-bottom: 17px;
+        transform: translateY(300px);
+    }
+
+    .marquee-slider .marquee-wrapper1 {
+        font-size: 52px;
+        font-family: var(--termina-bold);
+        color: var(--white);
+        margin-bottom: 0;
+        transition: all .6s ease-in-out;
+        transform: translateX(0);
+    }
+
+    .banner-hd-mini,
+    .term-hd-mini {
+        font-size: 25px;
+    }
+
+    .video-banner {
+        text-align: center;
+        z-index: 1;
+        height: auto;
+        min-height: 100%;
+        padding: 17px 0 20px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .para-row {
+        margin-top: 30px;
+    }
+
+
+    .banner-para {
+        color: var(--white);
+        font-size: 15px;
+        font-family: var(--termina-light);
+        margin-bottom: 28px;
+    }
+
+    .mission-btn-wrapper h3 {
+        font-size: 25px;
+    }
+
+    .service2.default-active h3 {
+        font-size: 35px !important;
+        transform: translate(0) !important;
+    }
+
+    .service1 h3,
+    .service3 h3 {
+        color: var(--white);
+        margin-bottom: 26px;
+        font-size: 40px;
+        font-weight: 900;
+        transition: all 1s ease-in-out;
+        position: relative;
+        transform: translate(0, 290%);
+    }
+
+    .service1 h3,
+    .service3 h3 {
+        color: var(--white);
+        margin-bottom: 26px;
+        font-size: 35px;
+        font-weight: 900;
+        transition: all 1s ease-in-out;
+        position: relative;
+        transform: translate(0, 200%);
+    }
+
+    .capabilities-sec .banner-para {
+        margin-bottom: 78px;
+    }
+
+    .capabilities-card-wrapper .banner-para {
+        margin-bottom: 0;
+        font-size: 14px;
+    }
+
+    .heading-btn-wrapper {
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        display: flex;
+    }
+
+    .insight-card h3 {
+        color: var(--white);
+        font-size: 20px;
+        font-family: var(--termina-regular);
+        margin-bottom: 5px;
+    }
+
+    .insight-card .insight-para {
+        color: var(--white);
+        opacity: .54;
+        font-family: var(--termina-regular);
+        margin-bottom: 20px;
+        font-size: 12px;
+    }
+
+    .insight-card .banner-para {
+        margin-bottom: 24px;
+        font-size: 14px;
+    }
+
+    .newsletter-sec h2 {
+        font-size: 32px;
+    }
+
+    .newsletter-form input {
+        background: var(--white);
+        width: 100%;
+        font-family: var(--termina-regular);
+        border: none;
+        border-radius: 105px;
+        outline: none;
+        padding: 15px 20px;
+        box-shadow: 2px 5px 4px #0000000d;
+    }
+
+    .newsletter-form .message-btn {
+        background: var(--red);
+        border: none;
+        border-radius: 100%;
+        padding: 11px 13px;
+        position: absolute;
+        top: 5px;
+        right: 10px;
+    }
+}
+
+
+
+
+
+/* 1100 ki screen say neechay ki  queries hain */
+
+.hero-banner {
+    padding-top: 155px !important;
+}
+
+.hero-banner .banner-hd-mini,
+.banner-hd-mini,
+.term-hd-mini {
+    font-size: 20px;
+}
+
+.hero-banner .banner-hd,
+.about-us .banner-hd,
+.banner-hd,
+.term-hd,
+.cta-hd {
+    font-size: 28px !important;
+}
+
+.video-banner .banner-para {
+    margin-bottom: 9px;
+    font-size: 13px;
+}
+
+.marquee-slider {
+    margin-top: 545px !important;
+}
+
+.marquee-slider .marquee-wrapper1 {
+    font-size: 37px;
+}
+
+.banner-para {
+    margin-bottom: 15px;
+    font-size: 13px;
+}
+
+.mission-btn-wrapper h3 {
+    font-size: 20px;
+}
+
+.mission-wrapper {
+    border: 1px solid #404042;
+    justify-content: space-between;
+    align-items: center;
+    padding: 35px 35px;
+    display: flex;
+}
+
+.mission-btn-content-wrapper {
+    padding: 0 35px 35px;
+}
+.service-mob2 h3 {
+    color: var(--white);
+    margin-bottom: 26px;
+    font-size: 28px;
+    font-weight: 900;
+    transition: all 1s ease-in-out;
+    position: relative;
+    transform: translate(0, 200%);
+}
+.service-mob2 h3 {
+    color: var(--white);
+    margin-bottom: 26px;
+    font-size: 28px;
+    font-weight: 900;
+    transition: all 1s ease-in-out;
+    position: relative;
+    transform: translate(0, 100px);
+}
+
+.choose-wrapper img {
+    width: 50px;
+}
+.capabilities-card-wrapper .banner-para {
+    font-size: 13px;
+}
+.capabilities-card-wrapper img{
+    height: 100px;
+    width: 100px;
+}
+.capabilities-card-wrapper {
+    height: 200px;
+}
+.capabilities-card-wrapper {
+    cursor: pointer;
+    background: linear-gradient(#be0101bd 0%, #40404277 100%);
+    border-radius: 20px;
+    flex-wrap: wrap;
+    width: calc(20% - 20px);
+    height: 255px;
+    padding: 69px 60px;
+    transition: all .5s;
+}
+
+
+.hero-banner .banner-hd-mini, .banner-hd-mini, .term-hd-mini {
+    font-size: 16px;
+}
+
+
+.hero-banner .banner-hd, .about-us .banner-hd, .banner-hd, .term-hd, .cta-hd {
+    font-size: 25px !important;
+}
+
+/* mobile screen */
+
+.hero-banner {
+    padding-top: 135px !important;
+}

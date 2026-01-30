@@ -1,0 +1,221 @@
+@font-face {
+    font-family: "Termina-Test-Black";
+    src: url(./font/TerminaTest-Black.otf);
+}
+
+@font-face {
+    font-family: "Termina-Test-Medium";
+    src: url(./font/TerminaTest-Light.otf);
+}
+
+@font-face {
+    font-family: "Termina-Test-heavy";
+    src: url(./font/TerminaTest-Heavy.otf);
+}
+
+@font-face {
+    font-family: "Termina-Test-bold";
+    src: url(./font/TerminaTest-Bold.otf);
+}
+
+@font-face {
+    font-family: "Termina-Test-regular";
+    src: url(./font/TerminaTest-Regular.otf);
+}
+
+@font-face {
+    font-family: "Termina-Test-light";
+    src: url(./font/TerminaTest-Light.otf);
+}
+
+:root {
+    --white: #ffffff;
+    --black: #000000;
+    --main-color: #1C0011;
+    --termina-black: "Termina-Test-Black";
+    --termina-medium: "Termina-Test-Medium";
+    --termina-heavy: "Termina-Test-heavy";
+    --termina-bold: "Termina-Test-bold";
+    --termina-regular: "Termina-Test-regular";
+    --termina-light: "Termina-Test-light";
+    --red: #BE0101;
+    --offset-value: 30;
+    --btn-size: 60;
+    --green: #4ECA78;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html,
+body {
+    height: 100%;
+    background: linear-gradient(180deg,
+            rgba(64, 64, 66, 0.466) 0%,
+            rgba(190, 1, 1, 0.74) 100%);
+    overflow-x: hidden;
+    position: relative;
+    z-index: 999999999999999;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin-bottom: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+b {
+    font-family: var(--termina-heavy);
+}
+
+.login-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.login-box {
+    position: relative;
+    z-index: 10;
+    background: var(--white);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    width: 100%;
+}
+
+h2 {
+    text-align: center;
+    color: var(--red);
+    margin-bottom: 30px;
+    font-size: 32px;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    font-family: var(--termina-black);
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 25px;
+    width: 100%;
+    border-radius: 5px !important;
+}
+
+.input-group label {
+    font-family: var(--termina-heavy);
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px 20px;
+    background: #c4c4c4;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--main-color);
+    font-size: 14px;
+    outline: none;
+    border-radius: 5px !important;
+    transition: all 0.3s ease;
+    font-family: var(--termina-regular);
+}
+
+.input-group input:focus {
+    border-color: #1C0011;
+    box-shadow: 0 0 15px rgba(97, 7, 7, 0.3);
+}
+
+.input-group input::placeholder {
+    color: var(--main-color);
+    font-size: 12px;
+}
+
+.input-icon {
+    font-size: 14px;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(25%);
+    color: var(--main-color) !important;
+}
+
+.forgot-password {
+    text-align: right;
+    margin-top: -15px;
+    margin-bottom: 25px;
+}
+
+.forgot-password a {
+    color: var(--main-color);
+    text-decoration: none;
+    font-size: 12px;
+    font-family: var(--termina-regular);
+    transition: color 0.3s ease;
+    text-decoration: underline;
+}
+
+.forgot-password a:hover {
+    color: var(--red);
+}
+
+.login-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(120deg,
+            rgba(64, 64, 66, 0.466) 0%,
+            rgba(190, 1, 1, 0.74) 100%);
+    border: none;
+    border-radius: 25px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(116, 10, 10, 0.5);
+}
+
+.login-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.login-btn:active::before {
+    width: 300px;
+    height: 300px;
+}
+
+.toggle-password i {
+    cursor: pointer;
+}
