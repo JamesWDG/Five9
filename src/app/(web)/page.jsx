@@ -31,176 +31,176 @@ const page = () => {
   gsap.registerPlugin(ScrollTrigger);
 
   // LOGO ANIMATION STARTS HERE
-  // useEffect(() => {
-  //   const tl = gsap.timeline();
-  //   let scaleValue, finalY, moveX;
-  //   const w = window.innerWidth;
-  //   const h = window.innerHeight;
+  useEffect(() => {
+    const tl = gsap.timeline();
+    let scaleValue, finalY, moveX;
+    const w = window.innerWidth;
+    const h = window.innerHeight;
 
-  //   if (w === 1900 && h === 650) {
-  //     scaleValue = 2;
-  //     finalY = -270;
-  //     moveX = 80;
-  //   } else if (w === 1600 && h === 650) {
-  //     scaleValue = 2;
-  //     finalY = -270;
-  //     moveX = 80;
-  //   } else if (w === 1536 && h === 703) {
-  //     scaleValue = 2;
-  //     finalY = -300;
-  //     moveX = 80;
-  //   } else if (w === 1500 && h === 650) {
-  //     scaleValue = 2;
-  //     finalY = -275;
-  //     moveX = 80;
-  //   } else if (w === 1400 && h === 650) {
-  //     scaleValue = 2;
-  //     finalY = -275;
-  //     moveX = 80;
-  //   } else if (w === 1440 && h === 650) {
-  //     scaleValue = 2;
-  //     finalY = -275;
-  //     moveX = 80;
-  //   } else if (w === 1366 && h === 650) {
-  //     scaleValue = 2;
-  //     finalY = -275;
-  //     moveX = 80;
-  //   } else if (w === 1280 && h === 650) {
-  //     scaleValue = 2;
-  //     finalY = -275;
-  //     moveX = 80;
-  //   } else if (w === 1200 && h === 650) {
-  //     scaleValue = 1.5;
-  //     finalY = -280;
-  //     moveX = 50;
-  //   } else if (w === 1024 && h === 650) {
-  //     scaleValue = 1;
-  //     finalY = 0;
-  //     moveX = 0;
-  //   } else if (w <= 1025) {
-  //     scaleValue = 1;
-  //     finalY = 0;
-  //     moveX = 0;
-  //   } else if (w <= 1200) {
-  //     scaleValue = 1.5;
-  //     finalY = -385;
-  //     moveX = 50;
-  //   } else if (w <= 1280) {
-  //     scaleValue = 2;
-  //     finalY = -375;
-  //     moveX = 80;
-  //   } else if (w <= 1366) {
-  //     scaleValue = 2;
-  //     finalY = -380;
-  //     moveX = 80;
-  //   } else if (w <= 1440) {
-  //     scaleValue = 2;
-  //     finalY = -380;
-  //     moveX = 80;
-  //   } else if (w <= 1500) {
-  //     scaleValue = 2;
-  //     finalY = -380;
-  //     moveX = 80;
-  //   } else if (w <= 1600) {
-  //     scaleValue = 2;
-  //     finalY = -375;
-  //     moveX = 80;
-  //   } else if (w <= 1900) {
-  //     scaleValue = 2;
-  //     finalY = -380;
-  //     moveX = 80;
-  //   } else {
-  //     scaleValue = 4;
-  //     finalY = -420;
-  //     moveX = 200;
-  //   }
+    if (w === 1900 && h === 650) {
+      scaleValue = 2;
+      finalY = -270;
+      moveX = 80;
+    } else if (w === 1600 && h === 650) {
+      scaleValue = 2;
+      finalY = -270;
+      moveX = 80;
+    } else if (w === 1536 && h === 703) {
+      scaleValue = 2;
+      finalY = -300;
+      moveX = 80;
+    } else if (w === 1500 && h === 650) {
+      scaleValue = 2;
+      finalY = -275;
+      moveX = 80;
+    } else if (w === 1400 && h === 650) {
+      scaleValue = 2;
+      finalY = -275;
+      moveX = 80;
+    } else if (w === 1440 && h === 650) {
+      scaleValue = 2;
+      finalY = -275;
+      moveX = 80;
+    } else if (w === 1366 && h === 650) {
+      scaleValue = 2;
+      finalY = -275;
+      moveX = 80;
+    } else if (w === 1280 && h === 650) {
+      scaleValue = 2;
+      finalY = -275;
+      moveX = 80;
+    } else if (w === 1200 && h === 650) {
+      scaleValue = 1.5;
+      finalY = -280;
+      moveX = 50;
+    } else if (w === 1024 && h === 650) {
+      scaleValue = 1;
+      finalY = 0;
+      moveX = 0;
+    } else if (w <= 1025) {
+      scaleValue = 1;
+      finalY = 0;
+      moveX = 0;
+    } else if (w <= 1200) {
+      scaleValue = 1.5;
+      finalY = -385;
+      moveX = 50;
+    } else if (w <= 1280) {
+      scaleValue = 2;
+      finalY = -375;
+      moveX = 80;
+    } else if (w <= 1366) {
+      scaleValue = 2;
+      finalY = -380;
+      moveX = 80;
+    } else if (w <= 1440) {
+      scaleValue = 2;
+      finalY = -380;
+      moveX = 80;
+    } else if (w <= 1500) {
+      scaleValue = 2;
+      finalY = -380;
+      moveX = 80;
+    } else if (w <= 1600) {
+      scaleValue = 2;
+      finalY = -375;
+      moveX = 80;
+    } else if (w <= 1900) {
+      scaleValue = 2;
+      finalY = -380;
+      moveX = 80;
+    } else {
+      scaleValue = 4;
+      finalY = -420;
+      moveX = 200;
+    }
 
-  //   tl.fromTo(
-  //     ".num",
-  //     { scale: 800, y: 800, x: 0, opacity: 1, zIndex: 5 },
-  //     { scale: scaleValue, y: 0, x: 0, duration: 2.3, ease: "power3.out" }
-  //   );
+    tl.fromTo(
+      ".num",
+      { scale: 800, y: 800, x: 0, opacity: 1, zIndex: 5 },
+      { scale: scaleValue, y: 0, x: 0, duration: 2.3, ease: "power3.out" }
+    );
 
-  //   tl.fromTo(
-  //     ".word",
-  //     {
-  //       x: 120,
-  //       opacity: 0,
-  //       scale: scaleValue,
-  //       zIndex: 1,
-  //     },
-  //     {
-  //       x: 0,
-  //       opacity: 1,
-  //       duration: 1,
-  //       ease: "power3.out",
-  //     },
-  //     "-=0.1"
-  //   );
+    tl.fromTo(
+      ".word",
+      {
+        x: 120,
+        opacity: 0,
+        scale: scaleValue,
+        zIndex: 1,
+      },
+      {
+        x: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power3.out",
+      },
+      "-=0.1"
+    );
 
-  //   tl.to(
-  //     ".num",
-  //     {
-  //       x: moveX,
-  //       duration: 1,
-  //       ease: "power2.out",
-  //     },
-  //     "-=1"
-  //   );
+    tl.to(
+      ".num",
+      {
+        x: moveX,
+        duration: 1,
+        ease: "power2.out",
+      },
+      "-=1"
+    );
 
-  //   tl.to([".num", ".word"], {
-  //     x: 0,
-  //     y: finalY,
-  //     scale: 1,
-  //     duration: 1.4,
-  //     ease: "power3.inOut",
-  //   });
+    tl.to([".num", ".word"], {
+      x: 0,
+      y: finalY,
+      scale: 1,
+      duration: 1.4,
+      ease: "power3.inOut",
+    });
 
-  //   tl.fromTo(
-  //     ".header-wrapper",
-  //     { y: -50, opacity: 0 },
-  //     {
-  //       y: 0,
-  //       opacity: 1,
-  //       duration: 1,
-  //       ease: "power3.out",
-  //       zIndex: 999999999,
-  //     }
-  //   );
+    tl.fromTo(
+      ".header-wrapper",
+      { y: -50, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power3.out",
+        zIndex: 999999999,
+      }
+    );
 
-  //   tl.to(".social-links", {
-  //     left: 0,
-  //     duration: 1,
-  //     ease: "power2.inOut",
-  //   });
+    tl.to(".social-links", {
+      left: 0,
+      duration: 1,
+      ease: "power2.inOut",
+    });
 
-  //   tl.to([".hero-banner .hd", ".hero-banner .banner-hd-mini"], {
-  //     opacity: 1,
-  //     duration: 1.4,
-  //     ease: "power2.inOut",
-  //   });
+    tl.to([".hero-banner .hd", ".hero-banner .banner-hd-mini"], {
+      opacity: 1,
+      duration: 1.4,
+      ease: "power2.inOut",
+    });
 
-  //   tl.to([".para-up", ".video-banner .btn-wrapper"], {
-  //     y: 0,
-  //     opacity: 1,
-  //     duration: 1.5,
-  //     ease: "power2.inOut",
-  //   });
+    tl.to([".para-up", ".video-banner .btn-wrapper"], {
+      y: 0,
+      opacity: 1,
+      duration: 1.5,
+      ease: "power2.inOut",
+    });
 
-  //   tl.to(".overlay", {
-  //     opacity: 0,
-  //     duration: 1.2,
-  //     ease: "power3.inOut",
-  //     onComplete: () => {
-  //       const overlay = document.querySelector(".overlay");
-  //       if (overlay) overlay.style.display = "none";
+    tl.to(".overlay", {
+      opacity: 0,
+      duration: 1.2,
+      ease: "power3.inOut",
+      onComplete: () => {
+        const overlay = document.querySelector(".overlay");
+        if (overlay) overlay.style.display = "none";
 
-  //       if (videoRef.current) {
-  //         videoRef.current.play();
-  //       }
-  //     },
-  //   });
-  // }, []);
+        if (videoRef.current) {
+          videoRef.current.play();
+        }
+      },
+    });
+  }, []);
   // LOGO ANIMATION ENDS HERE
 
 
@@ -288,7 +288,7 @@ const page = () => {
     });
   }, []);
 
-  // TRANSPARENT SLIDER STARTS HERE 
+  // TRANSPARENT SLIDER STARTS HERE
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     let xValue = -540;
@@ -388,7 +388,7 @@ const page = () => {
       },
     });
   }, []);
-  // TRANSPARENT SLIDER STARTS HERE 
+  // TRANSPARENT SLIDER STARTS HERE
   // TEXT SLIDER ANIMATION END HERE
 
 
@@ -677,7 +677,7 @@ const page = () => {
   useEffect(() => {
     const serviceCards = document.querySelectorAll(".service-card-wrapper");
 
-   
+
     serviceCards.forEach((card) => {
       card.addEventListener("mouseenter", () => {
         card.classList.add("active");

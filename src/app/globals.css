@@ -87,7 +87,7 @@ b {
 
 /* header start */
 
-/* .overlay {
+.overlay {
   background: #000000ab;
   position: fixed;
   top: 0;
@@ -95,7 +95,7 @@ b {
   width: 100%;
   height: 100vh;
   z-index: 2;
-} */
+}
 
 .header {
   background: none;
