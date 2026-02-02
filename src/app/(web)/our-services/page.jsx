@@ -123,7 +123,7 @@ const page = () => {
                     <div className="video-area">
                         <div className='heading-wrapper'>
                             <h3 className='banner-hd-mini hd'>SERVICES OVERVIEW</h3>
-                            <h1 className='banner-hd hd'>We built five distinct service lines to match <br /> the different ways companies need help with technology.</h1>
+                            <h1 className='banner-hd hd'>We Built Five Distinct Service Lines To Match <br /> The Different Ways Companies Need Help With Technology.</h1>
                         </div>
                         <div className='video-area-sec'>
                             <video src="/images/our-services-sec-banner.mp4" autoPlay playsInline muted loop controls={false}>

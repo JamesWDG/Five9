@@ -116,8 +116,8 @@ const page = () => {
                 <div className="container">
                     <div className="video-area">
                         <div className='heading-wrapper'>
-                            <h3 className='banner-hd-mini hd'>Make Enterprise Applications Work For Your Business</h3>
-                            <h1 className='banner-hd hd'>Enterprise Applications</h1>
+                            <h3 className='banner-hd-mini hd'>Custom apps, seamless integrations, and updated systems.</h3>
+                            <h1 className='banner-hd hd'>Applications</h1>
                         </div>
                         <div className='video-area-sec'>
                             <video src="/images/capable-banner-video.mp4" autoPlay playsInline muted loop>
@@ -140,9 +140,18 @@ const page = () => {
                     </p>
                 </div>
             </section>
-            <div className="container text-center mt-5" data-aos="fade-right" data-aos-delay="500">
-                <h3 className='banner-hd-mini hd'>Upgrade Enterprise Applications Without Slowing Down Operations</h3>
-                <p className='banner-para text-center mt-3 mb-5'>Teams juggle outdated software, disconnected systems, and slow applications that waste hours every day. Employees struggle with manual workflows, frustrating interfaces, and tools that don’t communicate, while managers lose visibility into operations and critical data. These challenges slow growth, reduce productivity, and create stress across the organization. We can fix these problems—and that’s exactly what we help you do.</p>
+            <div className="container text-center mt-5 service-btn-max2 mb-5" data-aos="fade-right" data-aos-delay="500">
+                <h3 className='banner-hd-mini hd'>Modernize legacy systems, integrate your tools, and make every application work for you.</h3>
+                <p className='banner-para text-center mt-3 mb-5'>Your team uses software constantly. The quality of those applications directly impacts productivity. Slow applications waste time. Confusing interfaces frustrate users. Systems that don't integrate create manual work. We provide <span className='red'>business application consulting</span> that makes software serve your needs instead of the other way around.</p>
+                <div className="btn-wrapper">
+                    <div className="btn-fill"></div>
+                    <div className="btn-content">
+                        <div className="left-icon">
+                            <Image src={rightArrow} className='img-fluid' alt="" />
+                        </div>
+                        <div className="btn-text">DISCUSS YOUR APPLICATION NEEDS</div>
+                    </div>
+                </div>
             </div>
 
             <section className="security-sec">
@@ -151,13 +160,13 @@ const page = () => {
                         <div className="row align-items-center">
                             <div className="col-lg-6" data-aos="fade-right" data-aos-delay="1500">
                                 {/* <h3 className='banner-hd-mini hd'>Bridge Strategy Design</h3> */}
-                                <h1 className='banner-hd hd'>ENTERPRISE APPLICATIONS</h1>
-                                <p className="banner-para">Enhance productivity with software that meets your business needs. We create custom enterprise applications, integrate systems for seamless workflows, optimize performance, and improve user experiences to ensure teams can work efficiently and effectively.</p>
+                                <h1 className='banner-hd hd'>APPLICATIONS</h1>
+                                <p className="banner-para">Develop and optimize software your team actually wants to use. We create custom applications, integrate different systems, improve performance, and redesign user experiences that reduce training time and increase productivity.</p>
                                 <h4 className='term-hd-mini'>Common challenges we solve:</h4>
-                                <p className="banner-para">Disjointed systems that don’t communicate, slow or outdated software, complex workflows that frustrate employees, difficulty scaling applications as the business grows.</p>
+                                <p className="banner-para">Software that frustrates employees, systems that don't talk to each other, slow applications that waste time, poor user experiences that require extensive training.</p>
                             </div>
                             <div className="col-lg-6" data-aos="fade-right" data-aos-delay="2000">
-                                <video src="/images/application-video.mp4" className='img-fluid' data-aos="fade-left" data-aos-delay="2500" autoPlay playsInline loop muted></video>
+                                <video src="/images/app-video.mp4" className='img-fluid' data-aos="fade-left" data-aos-delay="2500" autoPlay playsInline loop muted></video>
                             </div>
                         </div>
                     </div>
@@ -171,18 +180,22 @@ const page = () => {
 
             <section className="service-work-sec">
                 <div className="container">
-                    {/* <h2 className="term-hd text-center mb-5">ADVISORY SERVICE AREAS</h2> */}
-                    <h2 className="term-hd-mini">Custom Enterprise Software</h2>
-                    <p className='banner-para'>We build software tailored to your business processes and goals. Unlike off-the-shelf tools, custom applications fit your workflows perfectly, reduce friction, and maximize efficiency.</p>
+                    <h2 className="term-hd text-center mb-5">APPLICATION SERVICES</h2>
+                    <h2 className="term-hd-mini">Custom Software Solutions</h2>
+                    <p className='banner-para'>Sometimes off-the-shelf software doesn't fit your needs. Unique processes. Specific requirements. Competitive differentiation. We build <span className='red'>custom software solutions</span> designed exactly for how your business operates. You get applications that match your workflows instead of forcing workflows to match generic software.</p>
 
-                    <h2 className="term-hd-mini">Application Integration</h2>
-                    <p className='banner-para'>Seamlessly connect your software ecosystem. We link ERP, CRM, analytics, and productivity tools so information flows automatically and teams work smarter.</p>
+                    <h2 className="term-hd-mini">Enterprise Application Development</h2>
+                    <p className='banner-para'>Large organizations have complex application needs. Integration with existing systems. Security and compliance requirements. Scale and performance demands. Our <span className="red">enterprise application development</span> services build applications that work in complex enterprise environments. You get software that handles real-world demands.</p>
 
-                    <h2 className="term-hd-mini">Modernization & Updates</h2>
-                    <p className='banner-para'>Update legacy applications without disrupting operations. We modernize code, improve performance, and enable integration with modern platforms while maintaining reliability.</p>
+                    <h2 className="term-hd-mini">Application Modernization Services</h2>
+                    <p className='banner-para'>Legacy applications eventually hold businesses back. Old code that's hard to change. Outdated technology that limits capabilities. Systems that can't integrate with modern platforms. Our <span className="red">application modernization services</span> update applications systematically. You get modern capabilities without rebuilding everything.</p>
 
-                    <h2 className="term-hd-mini">Scalable Applications</h2>
-                    <p className='banner-para'>Design software that grows with your business. From small teams to enterprise-level scale, we ensure applications remain fast, reliable, and capable as demand increases.</p>
+                    <h2 className="term-hd-mini">Digital Application Platforms</h2>
+                    <p className='banner-para'>Modern applications need modern platforms. Cloud-native architecture. API-first design. Mobile-ready interfaces. Microservices structure. We build <span className="red">digital application platforms</span> using current best practices. You get applications built for how software works today, not how it worked 20 years ago.</p>
+
+                    <h2 className="term-hd-mini">Scalable Business Applications</h2>
+                    <p className='banner-para'>Applications need to grow with your business. What works for 10 users breaks with 10,000 users. We design <span className="red">scalable business applications</span> that handle growth gracefully. You don't outgrow your software as your business succeeds.</p>
+
                 </div>
             </section>
 
@@ -191,20 +204,20 @@ const page = () => {
             <section className="service-work-sec border-0">
                 <div className="container">
                     <h2 className="term-hd text-center mb-5">APPLICATION DEVELOPMENT APPROACH</h2>
-                    <h2 className="term-hd-mini">Discovery & Planning</h2>
-                    <p className='banner-para'>We analyze your workflows, user needs, and technology environment. This ensures applications solve the right problems and integrate seamlessly with your systems.</p>
+                    <h2 className="term-hd-mini">Discovery & Requirements</h2>
+                    <p className='banner-para'>We start by understanding what you need. What problems does the application solve? Who uses it? What workflows must it support? What systems must it integrate with? What performance is required? Clear requirements prevent building the wrong thing.</p>
 
                     <h2 className="term-hd-mini">Design & Prototyping</h2>
-                    <p className='banner-para'>Wireframes, prototypes, and mockups allow early feedback, reducing rework. You see the design before development begins.</p>
+                    <p className='banner-para'>We design user interfaces and application architecture before coding. Interactive prototypes let you see and test the design. Feedback happens early when changes are inexpensive. You know what you're getting before development begins.</p>
 
-                    <h2 className="term-hd-mini">Iterative Development</h2>
-                    <p className='banner-para'>Agile processes deliver working software in short cycles. Regular demos let you provide feedback and adjust priorities continuously.</p>
+                    <h2 className="term-hd-mini">Agile Development</h2>
+                    <p className='banner-para'>We build applications iteratively. Working software every 2-4 weeks. Regular demos and feedback. Course corrections based on what you learn. You see progress continuously instead of waiting months for a big reveal.</p>
 
                     <h2 className="term-hd-mini">Testing & Quality Assurance</h2>
-                    <p className='banner-para'>Automated and manual testing ensures security, performance, and reliability under real-world conditions.</p>
+                    <p className='banner-para'>Applications must work correctly under real conditions. Automated testing catches bugs early. Performance testing ensures speed under load. Security testing identifies vulnerabilities. You get quality software that works reliably.</p>
 
                     <h2 className="term-hd-mini">Deployment & Support</h2>
-                    <p className='banner-para'>We deploy carefully, monitor systems, and provide ongoing support to maintain performance. Your team never gets left behind.</p>
+                    <p className='banner-para'>We deploy applications to production carefully. Monitoring catches issues immediately. We provide support during stabilization. Documentation helps your team maintain the application. You don't get abandoned after launch.</p>
 
                 </div>
             </section>
@@ -213,12 +226,23 @@ const page = () => {
             <section className="service-work-sec">
                 <div className="container">
                     <h2 className="term-hd text-center mb-5">APPLICATION TYPES WE BUILD</h2>
-                    <ul className='term-list'>
+                    {/* <ul className='term-list'>
                         <li className='banner-para'><span className='red'>Internal Business Applications:</span> ERP, HR, project management, inventory systems.</li>
                         <li className='banner-para'><span className='red'>Customer-Facing Software: </span> Portals, e-commerce platforms, mobile apps, self-service solutions.</li>
                         <li className='banner-para'><span className='red'>Analytics & Reporting Tools: </span> Dashboards, BI applications, data visualization platforms.</li>
                         <li className='banner-para'><span className='red'>Integration Applications: </span> APIs, middleware, and automation for seamless system connectivity.</li>
-                    </ul>
+                    </ul> */}
+                    <h2 className="term-hd-mini">Business Applications</h2>
+                    <p className='banner-para'>CRM systems. Project management tools. Inventory management. Scheduling systems. Order processing. Workflow automation. Applications that help run daily operations efficiently.</p>
+
+                    <h2 className="term-hd-mini">Customer-Facing Applications</h2>
+                    <p className='banner-para'>E-commerce platforms. Customer portals. Mobile apps. Self-service systems. Applications that customers interact with directly to do business with you.</p>
+                    
+                    <h2 className="term-hd-mini">Data & Analytics Applications</h2>
+                    <p className='banner-para'>Reporting dashboards. Business intelligence tools. Data visualization. Analytics platforms. Applications that help make sense of data and drive decisions.</p>
+                    
+                    <h2 className="term-hd-mini">Integration Applications</h2>
+                    <p className='banner-para'>APIs and middleware that connect different systems. Allow data to flow between platforms. Enable automation across applications. Make your technology ecosystem work together.</p>
                 </div>
             </section>
 
@@ -226,31 +250,32 @@ const page = () => {
 
             <section className="service-work-sec border-0">
                 <div className="container">
-                    <h2 className="term-hd text-center mb-5">TECHNOLOGIES WE USE</h2>
+                    <h2 className="term-hd text-center mb-5">APPLICATION TECHNOLOGIES</h2>
+                    <p className='banner-para'>We use modern technologies appropriate for each application:</p>
                     <ul className='term-list'>
-                        <li className='banner-para'><span className='red'>Frontend:</span> React, Vue, Angular</li>
-                        <li className='banner-para'><span className='red'>Mobile: </span> iOS, Android, React Native</li>
-                        <li className='banner-para'><span className='red'>Backend: </span> Node.js, Python, Java, .NET</li>
-                        <li className='banner-para'><span className='red'>Databases: </span> PostgreSQL, MySQL, MongoDB</li>
-                        <li className='banner-para'><span className='red'>Cloud: </span> AWS, Azure, GCP</li>
-                        <li className='banner-para'><span className='red'>APIs: </span> REST, GraphQL</li>
+                        <li className='banner-para'><span className='red'>Frontend:</span> React, Vue, Angular for responsive web interfaces</li>
+                        <li className='banner-para'><span className='red'>Mobile: </span> iOS, Android native or React Native for cross-platform</li>
+                        <li className='banner-para'><span className='red'>Backend: </span> Node.js, Python, Java, .NET for server applications</li>
+                        <li className='banner-para'><span className='red'>Databases: </span> PostgreSQL, MongoDB, MySQL for data storage</li>
+                        <li className='banner-para'><span className='red'>Cloud: </span> AWS, Azure, GCP for hosting and services</li>
+                        <li className='banner-para'><span className='red'>APIs: </span> RESTful and GraphQL for integrations</li>
                     </ul>
-                    <p className='banner-para'>Technology choices are based on your needs, not trends.</p>
+                    <p className='banner-para'>Technology choices depend on your specific requirements, not what's trendy.</p>
                 </div>
             </section>
 
 
-         <section className="service-work-sec">
+            <section className="service-work-sec">
                 <div className="container">
-                    <h2 className="term-hd text-center mb-5">CASE STUDY: MANUFACTURING FIRM</h2>
+                    <h2 className="term-hd text-center mb-5">CASE STUDY: LOGISTICS COMPANY</h2>
                     <h2 className="term-hd-mini">The Challenge:</h2>
-                    <p className='banner-para'>A manufacturing company used spreadsheets and outdated software to track orders and production. Manual processes caused errors, delayed shipments, and frustrated employees.</p>
+                    <p className='banner-para'>A logistics company used spreadsheets to manage deliveries. Drivers called dispatchers for route changes. Customers called for delivery updates. The manual process limited capacity and created errors. They couldn't scale operations without adding massive staff.</p>
 
-                    <h2 className="term-hd-mini">Our Solution:</h2>
-                    <p className='banner-para'>Developed a custom production management application, integrated with inventory and order systems, added reporting dashboards, and mobile tools for staff.</p>
+                    <h2 className="term-hd-mini">What We Did:</h2>
+                    <p className='banner-para'>Built custom logistics management application. Real-time route optimization. Mobile app for drivers. Customer portal for tracking. Integration with existing systems. Automated dispatching based on constraints and priorities.</p>
 
                     <h2 className="term-hd-mini">The Result:</h2>
-                    <p className='banner-para'>Production errors dropped 50%, shipment times improved 40%, and employees saved hours weekly. Operations scaled efficiently without adding headcount.</p>
+                    <p className='banner-para'>Delivery capacity increased 60% with same staff. Route efficiency improved 35%. Customer service calls decreased 70%. Drivers saved hours daily through better routing. System paid for itself in 6 months through labor savings. Company scaled to new markets confidently.</p>
 
                 </div>
             </section>
@@ -260,11 +285,11 @@ const page = () => {
 
             <section className="cta-sec service-pg-cta">
                 <div className="container">
-                    <h2 className="cta-hd">GET STARTED WITH ENTERPRISE APPLICATIONS</h2>
+                    <h2 className="cta-hd">GET STARTED WITH APPLICATIONS</h2>
                     <div className="row">
                         <div className="col-lg-12">
-                            <h4>Discuss Your Software Needs</h4>
-                            <p className="banner-para">Tell us your goals. We’ll advise on custom development, modernization, or integration strategies that fit your business.</p>
+                            <h4>Schedule Application Consultation</h4>
+                            <p className="banner-para">Tell us what you're trying to accomplish. We'll discuss whether custom development, modernization, or integration makes sense for your situation.</p>
                             <div className="btn-wrapper">
                                 <div className="btn-fill"></div>
                                 <div className="btn-content">

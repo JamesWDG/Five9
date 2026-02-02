@@ -113,7 +113,7 @@ const page = () => {
             <Header2 />
 
             <section className='video-banner capable-video'>
-                <SocialLinks/>
+                <SocialLinks />
                 <div className="container">
                     <div className="video-area">
                         <div className='heading-wrapper'>
@@ -141,9 +141,18 @@ const page = () => {
                     </p>
                 </div>
             </section>
-            <div className="container text-center mt-5" data-aos="fade-right" data-aos-delay="500">
+            <div className="container text-center mt-5 service-btn-max mb-5" data-aos="fade-right" data-aos-delay="500">
                 <h3 className='banner-hd-mini hd'>We help you use cloud platforms the right way.</h3>
                 <p className='banner-para text-center mt-3 mb-5'>Cloud computing promises flexibility and cost savings. Reality is more complicated. Migrations go over budget and behind schedule. Applications don't work the same way. Costs spiral out of control. Security becomes unclear. We provide <span className="red">cloud consulting services</span> that deliver the benefits without the painful surprises.</p>
+                <div className="btn-wrapper">
+                    <div className="btn-fill"></div>
+                    <div className="btn-content">
+                        <div className="left-icon">
+                            <Image src={rightArrow} className='img-fluid' alt="" />
+                        </div>
+                        <div className="btn-text">START CLOUD ASSESSMENT </div>
+                    </div>
+                </div>
             </div>
             <section className="security-sec">
                 <div className="container">

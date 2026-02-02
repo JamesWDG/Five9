@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "@/app/globals.css";
 import "aos/dist/aos.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import "@/app/responsive.css";
+import "@/app/another-responsive.css";
 import "@/app/chatbot.css";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";

@@ -24,6 +24,7 @@ import Header from '@/components/Header.jsx';
 import { useRouter } from 'next/navigation';
 import ServicesSection from '@/components/ServicesSection.jsx';
 import Testimonials from '@/components/Testimonials.jsx';
+import Link from 'next/link.js';
 const page = () => {
   const router = useRouter();
   const logoRef = useRef(null);
@@ -169,7 +170,7 @@ const page = () => {
     );
 
     tl.to(".social-links", {
-      left: 0,
+      right: 0,
       duration: 1,
       ease: "power2.inOut",
     });
@@ -288,7 +289,7 @@ const page = () => {
     });
   }, []);
 
-  // TRANSPARENT SLIDER STARTS HERE
+  // TRANSPARENT SLIDER STARTS HERE 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     let xValue = -540;
@@ -388,7 +389,7 @@ const page = () => {
       },
     });
   }, []);
-  // TRANSPARENT SLIDER STARTS HERE
+  // TRANSPARENT SLIDER STARTS HERE 
   // TEXT SLIDER ANIMATION END HERE
 
 
@@ -907,36 +908,46 @@ const page = () => {
           <h3 className='banner-hd-mini'>Five Specialized Domains. One Reliable Partner.</h3>
           <p className='banner-para'>Five 9 delivers technology capability as a service across five specialized areas. Each domain has dedicated experts focusing entirely on their field. You get deep knowledge from specialists, and advices from generalists.</p>
           <div className="capabilities-card-mega-wrapper home-capablities-wrapper">
-            <div className="capabilities-card-wrapper">
-              <Image src={capableImage1} className='img-fluid' alt="" />
-              <h4 className='cap-para'>Security</h4>
-              <p className='banner-para'>Protect your data with testing, compliance, and incident response services.</p>
-            </div>
-            <div className="capabilities-card-wrapper">
-              <Image src={capableImage2} className='img-fluid' alt="" />
-              <h4 className='cap-para'>Transformation</h4>
-              <p className='banner-para'>Modernize systems safely, migrate data, train staff, and improve operations.</p>
-            </div>
-            <div className="capabilities-card-wrapper">
-              <Image src={capableImage3} className='img-fluid' alt="" />
-              <h4 className='cap-para'>Infrastructure</h4>
-              <p className='banner-para'>Build scalable, redundant infrastructure with monitoring to prevent failures.</p>
-            </div>
-            <div className="capabilities-card-wrapper">
-              <Image src={capableImage4} className='img-fluid' alt="" />
-              <h4 className='cap-para'>AI</h4>
-              <p className='banner-para'>Implement AI for analytics, automation, and measurable business results.</p>
-            </div>
-            <div className="capabilities-card-wrapper">
-              <Image src={capableImage5} className='img-fluid' alt="" />
-              <h4 className='cap-para'>Applications</h4>
-              <p className='banner-para'>Develop, integrate, and optimize applications to boost team productivity.</p>
-            </div>
+            <Link href={"/our-capabilities/security"} className="capabilities-card-wrapper">
+              <div>
+                <Image src={capableImage1} className='img-fluid' alt="" />
+                <h4 className='cap-para'>Security</h4>
+                <p className='banner-para'>Protect your data with testing, compliance, and incident response services.</p>
+              </div>
+            </Link>
+            <Link href={"/our-capabilities/Transformation"} className="capabilities-card-wrapper">
+              <div>
+                <Image src={capableImage2} className='img-fluid' alt="" />
+                <h4 className='cap-para'>Transformation</h4>
+                <p className='banner-para'>Modernize systems safely, migrate data, train staff, and improve operations.</p>
+              </div>
+            </Link>
+            <Link href={"/our-capabilities/Infrastructure"} className="capabilities-card-wrapper">
+              <div>
+                <Image src={capableImage3} className='img-fluid' alt="" />
+                <h4 className='cap-para'>Infrastructure</h4>
+                <p className='banner-para'>Build scalable, redundant infrastructure with monitoring to prevent failures.</p>
+              </div>
+            </Link>
+            <Link href={"/our-capabilities/Artificial-intelligence"} className="capabilities-card-wrapper">
+              <div>
+                <Image src={capableImage4} className='img-fluid' alt="" />
+                <h4 className='cap-para'>AI</h4>
+                <p className='banner-para'>Implement AI for analytics, automation, and measurable business results.</p>
+              </div>
+            </Link>
+            <Link href={"/our-capabilities/Applications"} className="capabilities-card-wrapper">
+              <div>
+                <Image src={capableImage5} className='img-fluid' alt="" />
+                <h4 className='cap-para'>Applications</h4>
+                <p className='banner-para'>Develop, integrate, and optimize applications to boost team productivity.</p>
+              </div>
+            </Link>
           </div>
         </div>
       </section>
       <InsightSlider />
-      <Testimonials/>
+      <Testimonials />
     </>
   )
 }

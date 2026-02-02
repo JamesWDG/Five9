@@ -4,6 +4,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import Swal from "sweetalert2";
+import Cookies from "js-cookie";
 
 const Page = () => {
     const [email, setEmail] = useState("");
@@ -40,7 +41,10 @@ const Page = () => {
             if (!res.ok) {
                 throw new Error(data.message || "Login failed");
             }
-            document.cookie = `token=${data.token}; path=/; max-age=${60 * 60 * 24}`;
+            // document.cookie = `token=${data.token}; path=/; max-age=${60 * 60 * 24}`;
+            Cookies.set("token", data.token, { expires: 1 });
+            Cookies.set("name", data?.user?.name || '');
+            Cookies.set("email", data?.user?.email || '');
             Swal.fire({
                 icon: "success",
                 title: "Login Successful",

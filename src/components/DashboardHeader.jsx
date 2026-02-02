@@ -4,17 +4,16 @@ import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import userImage from "@/app/dashboard/assets/images/user-img.png";
 import { useRouter } from "next/navigation";
+import Cookies from "js-cookie";
 
 const DashboardHeader = () => {
     const router = useRouter();
     const [open, setOpen] = useState(false);
     const dropdownRef = useRef(null);
+    let name = Cookies.get('name')
     const handleLogout = async () => {
         try {
-            const token = document.cookie
-                .split("; ")
-                .find(row => row.startsWith("token="))
-                ?.split("=")[1];
+            const token = Cookies.get('token')
             if (token) {
                 await fetch(
                     `${process.env.NEXT_PUBLIC_APP_URL}/auth/logout`,
@@ -30,7 +29,9 @@ const DashboardHeader = () => {
         } catch (error) {
             console.error("Logout API failed:", error);
         } finally {
-            document.cookie = "token=; Max-Age=0; path=/";
+            Cookies.remove('token');
+            Cookies.remove('name');
+            Cookies.remove('email');
             router.push("/auth/login");
         }
     };
@@ -83,7 +84,7 @@ const DashboardHeader = () => {
                                         className="btn btn-secondary dropdown-toggle"
                                         onClick={() => setOpen(!open)}
                                     >
-                                        Shannon Gordon
+                                        {name || ''}
                                     </button>
                                     {open && (
                                         <ul className="dropdown-menu show">

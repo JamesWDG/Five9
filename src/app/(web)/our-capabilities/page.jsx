@@ -230,7 +230,7 @@ const page = () => {
                                     <Image src={capableImage2} className='img-fluid' alt="" />
                                     <h4 className='cap-para'>Enterprise Applications</h4>
                                     <p className='banner-para'>Develop, integrate, and optimize enterprise software to streamline operations.</p>
-                                    <div className="btn-wrapper" onClick={() => router.push("/our-capabilities/Applications")}>
+                                    <div className="btn-wrapper" onClick={() => router.push("/our-capabilities/Enterprise-Applications")}>
                                         <div className="btn-fill"></div>
                                         <div className="btn-content">
                                             <div className="left-icon">

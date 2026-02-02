@@ -44,6 +44,7 @@ const Header2 = () => {
                                     <li><Link href={"/our-capabilities/Artificial-intelligence"}>Artificial Intelligence</Link></li>
                                     <li><Link href={"/our-capabilities/security"}>Security</Link></li>
                                     <li><Link href={"/our-capabilities/Infrastructure"}>Infrastructure</Link></li>
+                                    <li><Link href={"/our-capabilities/Enterprise-Applications"}>Enterprise Applications</Link></li>
                                     <li><Link href={"/our-capabilities/Applications"}>Applications</Link></li>
                                     <li><Link href={"/our-capabilities/Data-Engineering"}>Data Engineering</Link></li>
                                     <li><Link href={"/our-capabilities/Cloud"}>Cloud</Link></li>

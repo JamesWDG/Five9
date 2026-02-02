@@ -1,7 +1,9 @@
 import React from 'react'
 import Image from 'next/image'
 import footerLogo from '@/app/(web)/assets/images/footer-logo.png'
+import dmcaImage from '../../public/images/dmca-img.jpg'
 import Link from 'next/link'
+
 const Footer = () => {
     return (
         <>
@@ -41,7 +43,18 @@ const Footer = () => {
                             <Link href={"/"}>
                                 <Image src={footerLogo} className='img-fluid' alt="" />
                             </Link>
-                            <p className='footer-para para-width'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation </p>
+                            {/* <p className='footer-para para-width'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation </p> */}
+                            <div className="reach-mega-wrapper">
+                                <div className="reach-wrapper">
+                                    <h4>Reach Us</h4>
+                                    <a href="tel:+18778534839" className='footer-para'>+1 877 853 4839</a>
+                                    <a href="mailto:hello@five9.com" className='footer-para'>hello@five9.com</a>
+                                </div>
+                                <div className="reach-wrapper">
+                                    <h4>Contact Us</h4>
+                                    <p className="footer-para">8310 S. Valley Highway <br /> Suite 300</p>
+                                </div>
+                            </div>
                             <div className="footer-social-links">
                                 <ul>
                                     <li>
@@ -83,17 +96,7 @@ const Footer = () => {
                                     <Link href={"/terms-condition"}>TERMS & CONDITION</Link>
                                 </li>
                             </ul>
-                            <div className="reach-mega-wrapper">
-                                <div className="reach-wrapper">
-                                    <h4>Reach Us</h4>
-                                    <a href="tel:+18778534839" className='footer-para'>+1 877 853 4839</a>
-                                    <a href="mailto:hello@five9.com" className='footer-para'>hello@five9.com</a>
-                                </div>
-                                <div className="reach-wrapper">
-                                    <h4>Contact Us</h4>
-                                    <p className="footer-para">8310 S. Valley Highway <br /> Suite 300</p>
-                                </div>
-                            </div>
+                            <Image src={dmcaImage} className='img-fluid dmca-img' alt="" />
                         </div>
                     </div>
                     <div className='bottom-bar'>
@@ -101,6 +104,7 @@ const Footer = () => {
                     </div>
                 </div>
             </footer>
+            <script src="https://cdn.userway.org/widget.js" data-account="V3ZIeZd4to"></script>
         </>
     )
 }

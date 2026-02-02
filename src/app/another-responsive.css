@@ -1,314 +1,794 @@
-@media (max-width: 1600) {
+@media (max-width: 1950px) {
+    .toggle-icon-wrapper .header-logo {
+        display: none !important;
+    }
+}
+
+@media (max-width: 1950px) {
+    .main-header {
+        width: 1900px;
+    }
+}
+
+@media (max-width: 1660px) {
     .header .nav-links li a {
         font-size: 12px;
     }
 
+    .main-header {
+        width: 1660px;
+    }
+
+    .banner-hd-mini,
+    .term-hd-mini,
+    .testimonial-card h3,
+    .cta-sec h4,
+    .reach-wrapper h4,
+    .contact-content h4,
+    .faq-wrapper h3 {
+        font-size: 25px !important;
+    }
+
+    .banner-hd,
+    .vision-hd,
+    .term-hd,
+    .cta-hd,
+    .services h3,
+    .newsletter-sec h2 {
+        font-size: 32px !important;
+    }
+
+    .banner-para,
+    .insight-para,
+    .testimonial-text,
+    .footer-para .card-bottom-wrapper .mini-para,
+    .faq-item.active .faq-body,
+    .blog-hd-mini,
+    .video-banner .banner-para,
+    .capabilities-card-wrapper .banner-para {
+        font-size: 15px !important;
+    }
+
+    .cap-para {
+        font-size: 20px !important;
+    }
+
     .btn-wrapper {
-        cursor: pointer;
         width: 215px;
         height: 45px;
-        font-family: var(--termina-heavy);
-        border: 2px solid red;
-        border-radius: 50px;
-        margin: 0 auto;
         font-size: 12px;
-        display: flex;
-        position: relative;
-        overflow: hidden;
     }
 
     .btn-fill {
-        z-index: 1;
-        background: red;
-        border-radius: 50px;
         width: 40px;
-        height: 100%;
-        transition: all .4s;
-        position: absolute;
-        top: 0;
-        left: 0;
     }
 
-    .hero-banner .banner-hd-mini {
-        font-size: 25px;
-        font-family: var(--termina-bold);
-        color: var(--white);
-        opacity: 0;
-        margin-bottom: 7px;
+    .left-icon {
+        justify-content: start;
+        padding: 0 0px 0 7px;
     }
 
-    .hero-banner .banner-hd,
-    .about-us .banner-hd,
-    .banner-hd,
-    .term-hd,
-    .cta-hd {
-        font-size: 35px;
-    }
-
-    .video-banner .banner-para {
-        color: var(--white);
-        font-size: 16px;
-        font-family: var(--termina-light);
-        opacity: 0;
-        margin-bottom: 39px;
-        transform: translateY(300px);
-    }
-
-    .hero-banner {
-        text-align: center;
-        padding-top: 105px;
-    }
-
-    .video-banner .banner-para {
-        color: var(--white);
-        font-size: 16px;
-        font-family: var(--termina-light);
-        opacity: 0;
-        margin-bottom: 17px;
-        transform: translateY(300px);
+    .marquee-slider {
+        margin-top: 550px;
     }
 
     .marquee-slider .marquee-wrapper1 {
         font-size: 52px;
-        font-family: var(--termina-bold);
-        color: var(--white);
-        margin-bottom: 0;
-        transition: all .6s ease-in-out;
-        transform: translateX(0);
-    }
-
-    .banner-hd-mini,
-    .term-hd-mini {
-        font-size: 25px;
-    }
-
-    .video-banner {
-        text-align: center;
-        z-index: 1;
-        height: auto;
-        min-height: 100%;
-        padding: 17px 0 20px;
-        position: relative;
-        overflow: hidden;
     }
 
     .para-row {
         margin-top: 30px;
     }
 
-
-    .banner-para {
-        color: var(--white);
-        font-size: 15px;
-        font-family: var(--termina-light);
-        margin-bottom: 28px;
-    }
-
-    .mission-btn-wrapper h3 {
-        font-size: 25px;
-    }
-
-    .service2.default-active h3 {
-        font-size: 35px !important;
-        transform: translate(0) !important;
-    }
-
-    .service1 h3,
-    .service3 h3 {
-        color: var(--white);
-        margin-bottom: 26px;
-        font-size: 40px;
-        font-weight: 900;
-        transition: all 1s ease-in-out;
-        position: relative;
-        transform: translate(0, 290%);
-    }
-
-    .service1 h3,
-    .service3 h3 {
-        color: var(--white);
-        margin-bottom: 26px;
-        font-size: 35px;
-        font-weight: 900;
-        transition: all 1s ease-in-out;
-        position: relative;
-        transform: translate(0, 200%);
-    }
-
-    .capabilities-sec .banner-para {
-        margin-bottom: 78px;
-    }
-
-    .capabilities-card-wrapper .banner-para {
-        margin-bottom: 0;
-        font-size: 14px;
-    }
-
     .heading-btn-wrapper {
-        justify-content: space-between;
-        align-items: center;
         margin-bottom: 20px;
-        display: flex;
     }
 
     .insight-card h3 {
-        color: var(--white);
-        font-size: 20px;
-        font-family: var(--termina-regular);
+        font-size: 20px !important;
         margin-bottom: 5px;
     }
 
     .insight-card .insight-para {
-        color: var(--white);
-        opacity: .54;
-        font-family: var(--termina-regular);
         margin-bottom: 20px;
-        font-size: 12px;
-    }
-
-    .insight-card .banner-para {
-        margin-bottom: 24px;
-        font-size: 14px;
-    }
-
-    .newsletter-sec h2 {
-        font-size: 32px;
+        font-size: 12px !important;
     }
 
     .newsletter-form input {
-        background: var(--white);
-        width: 100%;
-        font-family: var(--termina-regular);
-        border: none;
-        border-radius: 105px;
-        outline: none;
         padding: 15px 20px;
-        box-shadow: 2px 5px 4px #0000000d;
+    }
+
+    .newsletter-form input::placeholder {
+        font-size: 12px;
     }
 
     .newsletter-form .message-btn {
-        background: var(--red);
-        border: none;
-        border-radius: 100%;
         padding: 11px 13px;
-        position: absolute;
         top: 5px;
         right: 10px;
+    }
+
+    .footer img {
+        width: 150px;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 1600px) {
+    .main-header {
+        width: 1600px;
+    }
+}
+
+@media (max-width: 1500px) {
+    .main-header {
+        width: 1500px;
+    }
+
+    .slider-arrow-left {
+        left: -50px;
+    }
+
+    .slider-arrow-right {
+        right: -50px;
+    }
+
+    .footer-links {
+        margin: 0 0 55px;
+    }
+
+    .footer-links li a {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 1440px) {
+    .main-header {
+        width: 1440px;
+    }
+
+    .footer img {
+        width: 130px;
+        margin-bottom: 50px;
+    }
+
+    .footer-links {
+        margin: 0 0 50px;
+        gap: 10px;
+    }
+
+    .reach-mega-wrapper {
+        justify-content: start;
+        gap: 110px;
+    }
+
+}
+
+@media (max-width: 1400px) {
+    .main-header {
+        width: 1400px;
+    }
+}
+
+@media (max-width: 1366px) {
+    .main-header {
+        width: 1366px;
+    }
+
+    .marquee-slider {
+        margin-top: 525px;
+    }
+}
+
+@media (max-width: 1280px) {
+    .main-header {
+        width: 1280px;
+    }
+
+    .capable-video.video-banner {
+        min-height: 45vh !important;
+    }
+}
+
+@media (max-width: 1200px) {
+    .main-header {
+        width: 1200px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .toggle-icon-wrapper .header-logo {
+        display: flex !important;
+        position: fixed;
+    }
+
+    .btn {
+        width: 45px;
+        height: 45px;
+    }
+
+    #toggle-btn span+span {
+        margin-top: 5px;
+    }
+
+    .slider-arrow-left img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .slider-arrow-right img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .header-logo {
+        top: 7%;
+        left: 10%;
+    }
+
+    #toggle-btn,
+    #nav-bg,
+    #toggle-btn span {
+        display: flex;
+    }
+
+    .cursor-outer {
+        display: none;
+    }
+
+    .cursor-inner {
+        display: none;
+    }
+
+    .footer-social-links {
+        display: block;
+    }
+
+    .social-links {
+        display: none;
+    }
+
+    .main-header,
+    header,
+    .logo-none {
+        display: none;
+    }
+
+    .hero-banner {
+        padding-top: 155px !important;
+    }
+
+    .banner-hd-mini,
+    .cap-para,
+    .term-hd-mini,
+    .testimonial-card h3,
+    .cta-sec h4,
+    .reach-wrapper h4,
+    .contact-content h4,
+    .faq-wrapper h3 {
+        font-size: 20px !important;
+    }
+
+    .banner-hd,
+    .vision-hd,
+    .term-hd,
+    .cta-hd,
+    .services h3,
+    .newsletter-sec h2 {
+        font-size: 28px !important;
+    }
+
+    .banner-para,
+    .insight-para,
+    .testimonial-text,
+    .footer-para .card-bottom-wrapper .mini-para,
+    .faq-item.active .faq-body,
+    .blog-hd-mini {
+        font-size: 13px !important;
+    }
+
+    .marquee-slider {
+        margin-top: 400px;
+    }
+
+    .marquee-slider .marquee-wrapper1 {
+        font-size: 37px;
+    }
+
+    .mission-wrapper,
+    .mission-btn-content-wrapper {
+        padding: 20px;
+    }
+
+    .choose-wrapper img {
+        width: 50px;
+    }
+
+    .capabilities-sec {
+        padding-bottom: 0px;
+    }
+
+    .capabilities-card-wrapper .banner-para {
+        font-size: 13px !important;
+    }
+
+    .capabilities-card-wrapper img {
+        height: 100px;
+        width: 100px;
+    }
+
+    .capabilities-card-wrapper {
+        height: 200px;
+    }
+
+    .capabilities-card-wrapper {
+        cursor: pointer;
+        background: linear-gradient(#be0101bd 0%, #40404277 100%);
+        border-radius: 20px;
+        flex-wrap: wrap;
+        width: calc(100% / 2 - 20px);
+        height: 255px;
+        margin-bottom: 90px;
+        padding: 69px 60px;
+        transition: all .5s;
+    }
+
+    .insight-card {
+        padding: 15px;
+    }
+
+    .insight-card h3 {
+        font-size: 15px !important;
+    }
+
+    .insight-card .insight-para {
+        margin-bottom: 10px;
+        font-size: 10px !important;
+    }
+
+    .header-logo {
+        top: 7%;
+        left: 10%;
+    }
+
+    .service-sec-mobile {
+        display: block;
+    }
+
+    .service-mob-none {
+        display: none;
+    }
+
+    .video-banner {
+        padding: 10px 0 10px;
+    }
+
+    .video-area video {
+        height: 900px;
+    }
+
+    .slider-arrow {
+        display: none;
+    }
+
+    .reach-mega-wrapper {
+        display: flex;
+        justify-content: start;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .underline:before {
+        display: none;
+    }
+
+    .toggle-icon-wrapper .header-logo {
+        background: rgba(255, 255, 255, 0.387);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(20px);
+        border-radius: 5px;
+        -webkit-backdrop-filter: blur(20px);
+        padding: 15px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .cursor-outer {
+        display: none;
+    }
+
+    .cursor-inner {
+        display: none;
+    }
+
+    .footer-social-links {
+        display: block;
+    }
+
+    .social-links {
+        display: none;
+    }
+
+    .main-header,
+    header,
+    .logo-none {
+        display: none;
+    }
+
+    .arrow-rotate i {
+        font-size: 14px;
+    }
+
+    .arrow-rotate {
+        padding: 12px 16px;
+    }
+
+    .contact-content-wrapper i {
+        font-size: 15px;
+    }
+
+    #toggle-btn,
+    #nav-bg,
+    #toggle-btn span {
+        display: flex;
+    }
+
+    .contact-content .contact-hd {
+        font-size: 120px;
+    }
+
+    .contact-social-links {
+        gap: 15px;
+    }
+
+    button.btn-wrapper.mt-5 {
+        margin-top: 20px;
+    }
+
+    .toggle-icon-wrapper .header-logo {
+        display: flex !important;
+        position: fixed;
+    }
+
+    .header-logo {
+        top: 7%;
+        left: 10%;
+    }
+
+    .capable-video.video-banner {
+        min-height: 35vh !important;
+    }
+
+    .blog-card-wrapper {
+        padding: 12px;
+    }
+
+    .blog-inner-para-wrapper.mt-5 {
+        margin-top: 20px !important;
+    }
+
+    .services {
+        padding: 100px 50px 83px;
+    }
+
+    .about-img1 {
+        top: 14.5%;
+        right: 10%;
+        height: 445px;
+    }
+
+    .about-img2 {
+        top: 0%;
+        height: 518px;
+    }
+
+    .about-advisory-sec .row {
+        justify-content: center !important;
+    }
+
+    .about-advisory-ul-wrapper {
+        justify-content: center;
+        align-items: start;
+        display: flex;
+        gap: 55px;
+    }
+
+    .about-advisory-sec {
+        padding: 35px 0;
+    }
+
+    .about-buisness-why-choose {
+        padding: 100px 0;
+    }
+
+    .dropdown-menu {
+        top: -20%;
+        left: 100%;
+    }
+
+    .link:before,
+    .link:after {
+        width: 20%;
+    }
+
+    .header-logo .word,
+    .header-logo .num {
+        font-size: 35px;
+    }
+
+    .choose-wrapper {
+        padding: 15px;
+    }
+
+    .capabilities-card-mega-wrapper {
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .dropdown-menu {
+        display: block;
+    }
+
+    .home-capablities-wrapper .capabilities-card-wrapper {
+        width: calc(100% / 2 - 10px);
+        margin-bottom: 50px;
+    }
+
+    .service-sec-mobile {
+        display: block;
+    }
+
+    .service-mob-none {
+        display: none;
+    }
+
+    .slider-arrow {
+        transform: translateY(342px);
+    }
+
+    .slider-arrow-left img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .slider-arrow-right img {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 991px) {
+    .footer-para br {
+        display: none;
+    }
+
+    .reach-mega-wrapper {
+        display: flex;
+        justify-content: start;
+        gap: 60px;
+        align-items: start;
+    }
+
+    .footer-links {
+        margin: 0 0 20px;
+    }
+
+    .insight-card {
+        text-align: center !important;
+    }
+
+    .insight-card .btn-wrapper {
+        margin: 0 auto;
+    }
+
+    .newsletter-sec h2 {
+        margin-bottom: 30px;
+    }
+
+    .row.justify-content-between.mt-4 {
+        margin-top: 0 !important;
+    }
+
+    .newsletter-form input {
+        margin-bottom: 20px;
+    }
+
+    .newsletter-sec {
+        margin-bottom: 30px;
+        padding: 30px 0;
+    }
+
+    .why-choose-us {
+        text-align: center;
+    }
+
+    .why-choose-us .btn-wrapper {
+        margin: 0 auto;
+        margin-bottom: 30px;
+    }
+
+    .choose-wrapper {
+        width: 50%;
+        margin: 0 auto !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .choose-row2 {
+        margin-top: 0 !important;
+    }
+
+    .why-choose-us .choose-row1,
+    .why-choose-us .choose-row2 {
+        margin-bottom: 30px;
+        gap: 30px;
+    }
+
+    .why-choose-us .choose-row2 {
+        flex-direction: column-reverse;
+    }
+
+    .newsletter-sec {
+        text-align: center;
+    }
+
+    .about-us {
+        text-align: center;
+    }
+
+    .about-us .btn-wrapper {
+        margin: 0 auto;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 767px) {
+    .footer img {
+        width: 120px;
+        margin-bottom: 30px;
+    }
+
+    .footer-links li {
+        padding: 10px 18px;
+    }
+
+    .reach-mega-wrapper {
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+
+    .header-logo {
+        top: 7%;
+        left: 13%;
+    }
+
+    .marquee-slider {
+        margin-top: 400px;
+    }
+
+    .video-banner .banner-para {
+        margin-bottom: 15px;
+    }
+
+    .para-row {
+        margin-top: 15px;
+    }
+
+    .about-us {
+        padding-top: 30px;
+    }
+
+    .capabilities-card-wrapper {
+        padding: 69px 30px;
     }
 }
 
 
 
+@media (max-width: 550px) {
 
+    .banner-hd-mini,
+    .cap-para,
+    .term-hd-mini,
+    .testimonial-card h3,
+    .cta-sec h4,
+    .reach-wrapper h4,
+    .contact-content h4,
+    .faq-wrapper h3 {
+        font-size: 16px !important;
+    }
 
-/* 1100 ki screen say neechay ki  queries hain */
+    .banner-hd,
+    .vision-hd,
+    .term-hd,
+    .cta-hd,
+    .services h3,
+    .newsletter-sec h2 {
+        font-size: 25px !important;
+    }
 
-.hero-banner {
-    padding-top: 155px !important;
+    .banner-para,
+    .insight-para,
+    .testimonial-text,
+    .footer-para .card-bottom-wrapper .mini-para,
+    .faq-item.active .faq-body,
+    .blog-hd-mini {
+        font-size: 12px !important;
+    }
+
+    .chat-input-container {
+        gap: 5px !important;
+        padding: 8px 12px !important;
+    }
+
+    .chat-header h4 {
+        font-size: 13px !important;
+    }
+
+    .chat-header {
+        padding: 10px !important;
+    }
+
+    .send-btn {
+        font-size: 12px !important;
+        width: 30px !important;
+        height: 30px !important;
+    }
+
+    .footer-social-links ul {
+        gap: 15px;
+    }
+
+    .footer-social-links ul li {
+        padding: 8px 10px;
+        font-size: 14px;
+    }
+
+    .footer .footer-para {
+        font-size: 13px;
+    }
+
+    .testimonial-card {
+        min-height: 340px;
+        padding: 50px 20px;
+        position: relative;
+    }
+
+    .header-logo {
+        left: 20%;
+        top: 6%;
+    }
+
+    .toggle-icon-wrapper .header-logo .word,
+    .toggle-icon-wrapper .header-logo .num {
+        font-size: 30px;
+    }
+
+    .video-area video {
+        height: 865px;
+    }
+
+    .marquee-slider {
+        margin-top: 355px;
+    }
+
+    .home-capablities-wrapper .capabilities-card-wrapper {
+        width: 100%;
+    }
 }
 
-.hero-banner .banner-hd-mini,
-.banner-hd-mini,
-.term-hd-mini {
-    font-size: 20px;
-}
+@media (max-width: 380px) {
+    .footer-links li {
+        padding: 6px 14px;
+    }
 
-.hero-banner .banner-hd,
-.about-us .banner-hd,
-.banner-hd,
-.term-hd,
-.cta-hd {
-    font-size: 28px !important;
-}
-
-.video-banner .banner-para {
-    margin-bottom: 9px;
-    font-size: 13px;
-}
-
-.marquee-slider {
-    margin-top: 545px !important;
-}
-
-.marquee-slider .marquee-wrapper1 {
-    font-size: 37px;
-}
-
-.banner-para {
-    margin-bottom: 15px;
-    font-size: 13px;
-}
-
-.mission-btn-wrapper h3 {
-    font-size: 20px;
-}
-
-.mission-wrapper {
-    border: 1px solid #404042;
-    justify-content: space-between;
-    align-items: center;
-    padding: 35px 35px;
-    display: flex;
-}
-
-.mission-btn-content-wrapper {
-    padding: 0 35px 35px;
-}
-.service-mob2 h3 {
-    color: var(--white);
-    margin-bottom: 26px;
-    font-size: 28px;
-    font-weight: 900;
-    transition: all 1s ease-in-out;
-    position: relative;
-    transform: translate(0, 200%);
-}
-.service-mob2 h3 {
-    color: var(--white);
-    margin-bottom: 26px;
-    font-size: 28px;
-    font-weight: 900;
-    transition: all 1s ease-in-out;
-    position: relative;
-    transform: translate(0, 100px);
-}
-
-.choose-wrapper img {
-    width: 50px;
-}
-.capabilities-card-wrapper .banner-para {
-    font-size: 13px;
-}
-.capabilities-card-wrapper img{
-    height: 100px;
-    width: 100px;
-}
-.capabilities-card-wrapper {
-    height: 200px;
-}
-.capabilities-card-wrapper {
-    cursor: pointer;
-    background: linear-gradient(#be0101bd 0%, #40404277 100%);
-    border-radius: 20px;
-    flex-wrap: wrap;
-    width: calc(20% - 20px);
-    height: 255px;
-    padding: 69px 60px;
-    transition: all .5s;
-}
-
-
-.hero-banner .banner-hd-mini, .banner-hd-mini, .term-hd-mini {
-    font-size: 16px;
-}
-
-
-.hero-banner .banner-hd, .about-us .banner-hd, .banner-hd, .term-hd, .cta-hd {
-    font-size: 25px !important;
-}
-
-/* mobile screen */
-
-.hero-banner {
-    padding-top: 135px !important;
+    .toggle-icon-wrapper .header-logo .word,
+    .toggle-icon-wrapper .header-logo .num {
+        font-size: 28px;
+    }
 }

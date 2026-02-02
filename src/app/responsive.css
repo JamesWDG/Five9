@@ -2,6 +2,10 @@
     .toggle-icon-wrapper .header-logo {
         display: none !important;
     }
+
+    .transparent {
+        margin-top: 0 !important;
+    }
 }
 
 @media (max-width: 1900px) {

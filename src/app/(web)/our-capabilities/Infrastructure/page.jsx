@@ -141,7 +141,7 @@ const page = () => {
                     </p>
                 </div>
             </section>
-            <div className="container text-center mt-5 service-btn-max mb-5" data-aos="fade-right" data-aos-delay="500">
+            <div className="container text-center mt-5 service-btn-max2 mb-5" data-aos="fade-right" data-aos-delay="500">
                 <h3 className='banner-hd-mini hd'>Infrastructure designed to stay up and scale cleanly.</h3>
                 <p className='banner-para text-center mt-3 mb-5'>Infrastructure is everything running underneath your applications. Servers. Networks. Storage. Databases. When it works, nobody thinks about it. When it fails, everything stops. We build <span className="red">scalable IT infrastructure</span> that handles growth without breaking. Your systems stay available while competitors deal with outages.</p>
                 <div className="btn-wrapper">
