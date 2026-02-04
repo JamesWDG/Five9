@@ -53,7 +53,6 @@ const FullscreenMenu = () => {
     setActiveDropdown(null);
   };
 
-  // 🔥 SIMPLE & RELIABLE TOGGLE
   const toggleDropdown = (menu) => {
     setActiveDropdown((prev) => (prev === menu ? null : menu));
   };
@@ -100,30 +99,28 @@ const FullscreenMenu = () => {
       <div className={`wrapper ${open ? "shown" : ""}`}>
         <nav>
           <ul>
+
             <li><Link href="/">HOME</Link></li>
             <li><Link href="/about-us">ABOUT US</Link></li>
 
-            {/* ================= SERVICES ================= */}
-            <li className={`drop-down ${activeDropdown === "services" ? "open" : ""}`}>
+            {/* SERVICES */}
+            <li className={`menu-item ${activeDropdown === "services" ? "is-open" : ""}`}>
+              <div className="menu-head">
+                <Link href="/our-services" className="menu-link">SERVICES</Link>
 
-              {/* TEXT → REDIRECT */}
-              <Link href="/our-services" className="link-text">
-                SERVICES
-              </Link>
+                <button
+                  className="menu-toggle"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    toggleDropdown("services");
+                  }}
+                >
+                  <Image src={downArrow} alt="toggle" />
+                </button>
+              </div>
 
-              {/* ICON → TOGGLE */}
-              <span
-                className="dropdown-icon"
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  toggleDropdown("services");
-                }}
-              >
-                <Image src={downArrow} alt="toggle" />
-              </span>
-
-              <ul className="dropdown-menu">
+              <ul className="menu-dropdown">
                 <li><Link href="/our-services/strategy">Strategy</Link></li>
                 <li><Link href="/our-services/fractional-CTO">Fractional CTO</Link></li>
                 <li><Link href="/our-services/digital-services">Digital</Link></li>
@@ -135,32 +132,30 @@ const FullscreenMenu = () => {
             <li><Link href="/contact-us">CONTACT US</Link></li>
             <li><Link href="/blogs">BLOGS</Link></li>
 
-            {/* ================= CAPABILITIES ================= */}
-            <li className={`drop-down ${activeDropdown === "capabilities" ? "open" : ""}`}>
+            {/* CAPABILITIES */}
+            <li className={`menu-item ${activeDropdown === "capabilities" ? "is-open" : ""}`}>
+              <div className="menu-head">
+                <Link href="/our-capabilities" className="menu-link">CAPABILITIES</Link>
 
-              {/* TEXT → REDIRECT */}
-              <Link href="/our-capabilities" className="link-text">
-                CAPABILITIES
-              </Link>
+                <button
+                  className="menu-toggle"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    toggleDropdown("capabilities");
+                  }}
+                >
+                  <Image src={downArrow} alt="toggle" />
+                </button>
+              </div>
 
-              {/* ICON → TOGGLE */}
-              <span
-                className="dropdown-icon"
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  toggleDropdown("capabilities");
-                }}
-              >
-                <Image src={downArrow} alt="toggle" />
-              </span>
-
-              <ul className="dropdown-menu">
+              <ul className="menu-dropdown">
                 <li><Link href="/our-capabilities/Transformation">Transformation</Link></li>
                 <li><Link href="/our-capabilities/Artificial-intelligence">Artificial Intelligence</Link></li>
                 <li><Link href="/our-capabilities/security">Security</Link></li>
                 <li><Link href="/our-capabilities/Infrastructure">Infrastructure</Link></li>
                 <li><Link href="/our-capabilities/Applications">Applications</Link></li>
+                <li><Link href="/our-capabilities/Enterprise-Applications">Enterprise Applications</Link></li>
                 <li><Link href="/our-capabilities/Data-Engineering">Data Engineering</Link></li>
                 <li><Link href="/our-capabilities/Cloud">Cloud</Link></li>
               </ul>

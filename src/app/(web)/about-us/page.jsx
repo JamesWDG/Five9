@@ -19,73 +19,73 @@ const page = () => {
         let endPoint = "bottom 400";
         let showMarkers = false;
         if (window.innerWidth <= 375) {
-            xValue = -1205;
+            xValue = -800;
             startPoint = "top 900";
             endPoint = "bottom 300";
             showMarkers = false; // ✅ 1200 par ON
         }
         else if (window.innerWidth <= 500) {
-            xValue = -1100;
-            startPoint = "top 900";
-            endPoint = "bottom 300";
+            xValue = -700;
+            startPoint = "top 800";
+            endPoint = "bottom 10";
             showMarkers = false; // ✅ 1200 par ON
         }
         else if (window.innerWidth <= 767) {
-            xValue = -820;
+            xValue = -400;
             startPoint = "top 900";
             endPoint = "bottom 300";
             showMarkers = false; // ✅ 1200 par ON
         }
         else if (window.innerWidth <= 991) {
-            xValue = -600;
+            xValue = -200;
             startPoint = "top 900";
             endPoint = "bottom 300";
             showMarkers = false; // ✅ 1200 par ON
         }
         else if (window.innerWidth <= 1024) {
-            xValue = -560;
+            xValue = -160;
             startPoint = "top 700";
             endPoint = "bottom 300";
             showMarkers = false; // ✅ 1200 par ON
         }
         else if (window.innerWidth <= 1200) {
-            xValue = -880;
+            xValue = -450;
             startPoint = "top 700";
             endPoint = "bottom 300";
             showMarkers = false; // ✅ 1200 par ON
         }
         else if (window.innerWidth <= 1280) {
-            xValue = -775;
-            startPoint = "top 700";
-            endPoint = "bottom 300";
+            xValue = -380;
+            startPoint = "top 800";
+            endPoint = "bottom 100";
             showMarkers = false;
         }
         else if (window.innerWidth <= 1366) {
-            xValue = -700;
-            startPoint = "top 700";
-            endPoint = "bottom 300";
+            xValue = -310;
+            startPoint = "top 800";
+            endPoint = "bottom 100";
             showMarkers = false;
         }
         else if (window.innerWidth <= 1400) {
-            xValue = -670;
+            xValue = -270;
             startPoint = "top 700";
-            endPoint = "bottom 300";
+            endPoint = "bottom 200";
             showMarkers = false;
         }
         else if (window.innerWidth <= 1440) {
-            xValue = -620;
+            xValue = -220;
             startPoint = "top 900";
             endPoint = "bottom 300";
             showMarkers = false;
         }
         else if (window.innerWidth <= 1500) {
-            xValue = -570;
+            xValue = -150;
             startPoint = "top 900";
             endPoint = "bottom 300";
             showMarkers = false;
         }
         else if (window.innerWidth <= 1600) {
-            xValue = -455;
+            xValue = -60;
             startPoint = "top 900";
             endPoint = "bottom 300";
             showMarkers = false;

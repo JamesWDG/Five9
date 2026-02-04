@@ -18,88 +18,88 @@ const page = () => {
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
         let xValue = -540;
-        let startPoint = "top 300";
+        let startPoint = "top 400";
         let endPoint = "bottom 400";
         let showMarkers = false;
         if (window.innerWidth <= 375) {
-            xValue = -1205;
+            xValue = -800;
             startPoint = "top 200";
             endPoint = "bottom 300";
             showMarkers = false; // ✅ 1200 par ON
         }
         else if (window.innerWidth <= 500) {
-            xValue = -1100;
+            xValue = -700;
+            startPoint = "top 200";
+            endPoint = "bottom 10";
+            showMarkers = false; // ✅ 1200 par ON
+        }
+        else if (window.innerWidth <= 767) {
+            xValue = -400;
             startPoint = "top 200";
             endPoint = "bottom 300";
             showMarkers = false; // ✅ 1200 par ON
         }
-        else if (window.innerWidth <= 767) {
-            xValue = -820;
-            startPoint = "top 300";
-            endPoint = "bottom 300";
-            showMarkers = false; // ✅ 1200 par ON
-        }
         else if (window.innerWidth <= 991) {
-            xValue = -600;
+            xValue = -200;
             startPoint = "top 200";
             endPoint = "bottom 300";
             showMarkers = false; // ✅ 1200 par ON
         }
         else if (window.innerWidth <= 1024) {
-            xValue = -560;
+            xValue = -160;
             startPoint = "top 200";
             endPoint = "bottom 300";
             showMarkers = false; // ✅ 1200 par ON
         }
         else if (window.innerWidth <= 1200) {
-            xValue = -880;
-            startPoint = "top 300";
+            xValue = -450;
+            startPoint = "top 400";
             endPoint = "bottom 300";
             showMarkers = false; // ✅ 1200 par ON
         }
         else if (window.innerWidth <= 1280) {
-            xValue = -775;
-            startPoint = "top 300";
-            endPoint = "bottom 300";
+            xValue = -380;
+            startPoint = "top 400";
+            endPoint = "bottom 100";
             showMarkers = false;
         }
         else if (window.innerWidth <= 1366) {
-            xValue = -700;
-            startPoint = "top 300";
-            endPoint = "bottom 300";
+            xValue = -310;
+            startPoint = "top 400";
+            endPoint = "bottom 100";
             showMarkers = false;
         }
         else if (window.innerWidth <= 1400) {
-            xValue = -670;
+            xValue = -270;
             startPoint = "top 400";
             endPoint = "bottom 300";
             showMarkers = false;
         }
         else if (window.innerWidth <= 1440) {
-            xValue = -620;
-            startPoint = "top 420";
+            xValue = -220;
+            startPoint = "top 400";
             endPoint = "bottom 300";
             showMarkers = false;
         }
         else if (window.innerWidth <= 1500) {
-            xValue = -570;
-            startPoint = "top 430";
+            xValue = -150;
+            startPoint = "top 400";
             endPoint = "bottom 300";
             showMarkers = false;
         }
         else if (window.innerWidth <= 1600) {
-            xValue = -455;
-            startPoint = "top 430";
+            xValue = -60;
+            startPoint = "top 400";
             endPoint = "bottom 300";
             showMarkers = false;
         }
 
 
-        gsap.to(".transparent .marquee-mega-wrapper", {
+        gsap.to(".slider-black .marquee-mega-wrapper", {
             x: xValue,
             ease: "none",
             scrollTrigger: {
-                trigger: ".transparent .marquee-wrapper1",
+                trigger: ".slider-black .marquee-wrapper1",
                 start: startPoint,
                 end: endPoint,
                 scrub: 2,
@@ -128,7 +128,7 @@ const page = () => {
                     </div>
                 </div>
             </section>
-            <section className='marquee-slider transparent'>
+            <section className='marquee-slider slider-black services-slider'>
                 <div className="marquee-mega-wrapper">
                     <p className='marquee-wrapper1 m-0'>
                         EMPOWERING RESILIENCE,
@@ -323,7 +323,7 @@ const page = () => {
                                         </div> */}
 
                             <p className="banner-para">We'll review your current state across all five capability domains. You'll get a clear picture of where you're strong and where vulnerabilities exist. No cost. No obligation. Just honest assessment.</p>
-                            <div className="btn-wrapper" onClick={() => router.push("/our-capabilities/")}>
+                            <div className="btn-wrapper" onClick={() => router.push("/contact-us/")}>
                                 <div className="btn-fill"></div>
                                 <div className="btn-content">
                                     <div className="left-icon">

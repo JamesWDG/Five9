@@ -83,7 +83,7 @@ const InsightSlider = () => {
                             <div className="left-icon">
                                 <Image src={rightArrow} alt="" />
                             </div>
-                            <div className="btn-text">VIEW ALL</div>
+                            <div className="btn-text">READ MORE</div>
                         </div>
                     </div>
                 </div>

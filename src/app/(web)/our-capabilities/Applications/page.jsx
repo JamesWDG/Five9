@@ -8,92 +8,94 @@ import AOS from 'aos';
 import SocialLinks from '@/components/SocialLinks';
 import rightArrow from "@/app/(web)/assets/images/right-arrow.png"
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 const page = () => {
+    const router = useRouter();
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
         let xValue = -540;
-        let startPoint = "top 300";
+        let startPoint = "top 400";
         let endPoint = "bottom 400";
         let showMarkers = false;
         if (window.innerWidth <= 375) {
-            xValue = -1205;
+            xValue = -800;
             startPoint = "top 200";
             endPoint = "bottom 300";
             showMarkers = false; // ✅ 1200 par ON
         }
         else if (window.innerWidth <= 500) {
-            xValue = -1100;
+            xValue = -700;
+            startPoint = "top 200";
+            endPoint = "bottom 10";
+            showMarkers = false; // ✅ 1200 par ON
+        }
+        else if (window.innerWidth <= 767) {
+            xValue = -400;
             startPoint = "top 200";
             endPoint = "bottom 300";
             showMarkers = false; // ✅ 1200 par ON
         }
-        else if (window.innerWidth <= 767) {
-            xValue = -820;
-            startPoint = "top 300";
-            endPoint = "bottom 300";
-            showMarkers = false; // ✅ 1200 par ON
-        }
         else if (window.innerWidth <= 991) {
-            xValue = -600;
+            xValue = -200;
             startPoint = "top 200";
             endPoint = "bottom 300";
             showMarkers = false; // ✅ 1200 par ON
         }
         else if (window.innerWidth <= 1024) {
-            xValue = -560;
+            xValue = -160;
             startPoint = "top 200";
             endPoint = "bottom 300";
             showMarkers = false; // ✅ 1200 par ON
         }
         else if (window.innerWidth <= 1200) {
-            xValue = -880;
-            startPoint = "top 300";
+            xValue = -450;
+            startPoint = "top 400";
             endPoint = "bottom 300";
             showMarkers = false; // ✅ 1200 par ON
         }
         else if (window.innerWidth <= 1280) {
-            xValue = -775;
-            startPoint = "top 300";
-            endPoint = "bottom 300";
+            xValue = -380;
+            startPoint = "top 400";
+            endPoint = "bottom 100";
             showMarkers = false;
         }
         else if (window.innerWidth <= 1366) {
-            xValue = -700;
-            startPoint = "top 300";
-            endPoint = "bottom 300";
+            xValue = -310;
+            startPoint = "top 400";
+            endPoint = "bottom 100";
             showMarkers = false;
         }
         else if (window.innerWidth <= 1400) {
-            xValue = -670;
+            xValue = -270;
             startPoint = "top 400";
             endPoint = "bottom 300";
             showMarkers = false;
         }
         else if (window.innerWidth <= 1440) {
-            xValue = -620;
-            startPoint = "top 420";
+            xValue = -220;
+            startPoint = "top 400";
             endPoint = "bottom 300";
             showMarkers = false;
         }
         else if (window.innerWidth <= 1500) {
-            xValue = -570;
-            startPoint = "top 430";
+            xValue = -150;
+            startPoint = "top 400";
             endPoint = "bottom 300";
             showMarkers = false;
         }
         else if (window.innerWidth <= 1600) {
-            xValue = -455;
-            startPoint = "top 430";
+            xValue = -60;
+            startPoint = "top 400";
             endPoint = "bottom 300";
             showMarkers = false;
         }
 
 
-        gsap.to(".transparent .marquee-mega-wrapper", {
+        gsap.to(".slider-black .marquee-mega-wrapper", {
             x: xValue,
             ease: "none",
             scrollTrigger: {
-                trigger: ".transparent .marquee-wrapper1",
+                trigger: ".slider-black .marquee-wrapper1",
                 start: startPoint,
                 end: endPoint,
                 scrub: 2,
@@ -127,7 +129,7 @@ const page = () => {
                     </div>
                 </div>
             </section>
-            <section className='marquee-slider transparent'>
+            <section className='marquee-slider slider-black services-slider'>
                 <div className="marquee-mega-wrapper">
                     <p className='marquee-wrapper1 m-0'>
                         EMPOWERING RESILIENCE,
@@ -140,18 +142,9 @@ const page = () => {
                     </p>
                 </div>
             </section>
-            <div className="container text-center mt-5 service-btn-max2 mb-5" data-aos="fade-right" data-aos-delay="500">
+            <div className="container text-center mt-5 startegy-video" data-aos="fade-right" data-aos-delay="500">
                 <h3 className='banner-hd-mini hd'>Modernize legacy systems, integrate your tools, and make every application work for you.</h3>
                 <p className='banner-para text-center mt-3 mb-5'>Your team uses software constantly. The quality of those applications directly impacts productivity. Slow applications waste time. Confusing interfaces frustrate users. Systems that don't integrate create manual work. We provide <span className='red'>business application consulting</span> that makes software serve your needs instead of the other way around.</p>
-                <div className="btn-wrapper">
-                    <div className="btn-fill"></div>
-                    <div className="btn-content">
-                        <div className="left-icon">
-                            <Image src={rightArrow} className='img-fluid' alt="" />
-                        </div>
-                        <div className="btn-text">DISCUSS YOUR APPLICATION NEEDS</div>
-                    </div>
-                </div>
             </div>
 
             <section className="security-sec">
@@ -237,10 +230,10 @@ const page = () => {
 
                     <h2 className="term-hd-mini">Customer-Facing Applications</h2>
                     <p className='banner-para'>E-commerce platforms. Customer portals. Mobile apps. Self-service systems. Applications that customers interact with directly to do business with you.</p>
-                    
+
                     <h2 className="term-hd-mini">Data & Analytics Applications</h2>
                     <p className='banner-para'>Reporting dashboards. Business intelligence tools. Data visualization. Analytics platforms. Applications that help make sense of data and drive decisions.</p>
-                    
+
                     <h2 className="term-hd-mini">Integration Applications</h2>
                     <p className='banner-para'>APIs and middleware that connect different systems. Allow data to flow between platforms. Enable automation across applications. Make your technology ecosystem work together.</p>
                 </div>
@@ -290,7 +283,7 @@ const page = () => {
                         <div className="col-lg-12">
                             <h4>Schedule Application Consultation</h4>
                             <p className="banner-para">Tell us what you're trying to accomplish. We'll discuss whether custom development, modernization, or integration makes sense for your situation.</p>
-                            <div className="btn-wrapper">
+                            <div className="btn-wrapper" onClick={() => router.push("/contact-us")}>
                                 <div className="btn-fill"></div>
                                 <div className="btn-content">
                                     <div className="left-icon">

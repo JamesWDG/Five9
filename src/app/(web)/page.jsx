@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useLayoutEffect, useRef } from 'react'
 import Image from 'next/image'
 import MarqueeSlider from '@/components/MarqueeSlider'
 import { montserrat } from '../../../public/font/font.js'
@@ -25,133 +25,104 @@ import { useRouter } from 'next/navigation';
 import ServicesSection from '@/components/ServicesSection.jsx';
 import Testimonials from '@/components/Testimonials.jsx';
 import Link from 'next/link.js';
+import RailSec from '@/components/RailSec.jsx';
 const page = () => {
   const router = useRouter();
   const logoRef = useRef(null);
   const videoRef = useRef(null);
   gsap.registerPlugin(ScrollTrigger);
+  useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    ScrollTrigger.refresh();
+  }, []);
 
   // LOGO ANIMATION STARTS HERE
   useEffect(() => {
     const tl = gsap.timeline();
-    let scaleValue, finalY, moveX;
+    const static1 = 0.05;
+    const static2 = 0.50;
     const w = window.innerWidth;
-    const h = window.innerHeight;
+    let h = window.visualViewport?.height || window.innerHeight;
+    let topPadding = 40;
 
-    if (w === 1900 && h === 650) {
-      scaleValue = 2;
-      finalY = -270;
-      moveX = 80;
-    } else if (w === 1600 && h === 650) {
-      scaleValue = 2;
-      finalY = -270;
-      moveX = 80;
-    } else if (w === 1536 && h === 703) {
-      scaleValue = 2;
-      finalY = -300;
-      moveX = 80;
-    } else if (w === 1500 && h === 650) {
-      scaleValue = 2;
-      finalY = -275;
-      moveX = 80;
-    } else if (w === 1400 && h === 650) {
-      scaleValue = 2;
-      finalY = -275;
-      moveX = 80;
-    } else if (w === 1440 && h === 650) {
-      scaleValue = 2;
-      finalY = -275;
-      moveX = 80;
-    } else if (w === 1366 && h === 650) {
-      scaleValue = 2;
-      finalY = -275;
-      moveX = 80;
-    } else if (w === 1280 && h === 650) {
-      scaleValue = 2;
-      finalY = -275;
-      moveX = 80;
-    } else if (w === 1200 && h === 650) {
-      scaleValue = 1.5;
-      finalY = -280;
-      moveX = 50;
-    } else if (w === 1024 && h === 650) {
-      scaleValue = 1;
-      finalY = 0;
-      moveX = 0;
-    } else if (w <= 1025) {
-      scaleValue = 1;
-      finalY = 0;
-      moveX = 0;
-    } else if (w <= 1200) {
-      scaleValue = 1.5;
-      finalY = -385;
-      moveX = 50;
-    } else if (w <= 1280) {
-      scaleValue = 2;
-      finalY = -375;
-      moveX = 80;
-    } else if (w <= 1366) {
-      scaleValue = 2;
-      finalY = -380;
-      moveX = 80;
-    } else if (w <= 1440) {
-      scaleValue = 2;
-      finalY = -380;
-      moveX = 80;
-    } else if (w <= 1500) {
-      scaleValue = 2;
-      finalY = -380;
-      moveX = 80;
-    } else if (w <= 1600) {
-      scaleValue = 2;
-      finalY = -375;
-      moveX = 80;
-    } else if (w <= 1900) {
-      scaleValue = 2;
-      finalY = -380;
-      moveX = 80;
-    } else {
-      scaleValue = 4;
-      finalY = -420;
-      moveX = 200;
+    if (h == 1600) {
+      topPadding = -27;
+    }
+    else if (h >= 1500) {
+      topPadding = -20;
+    }
+    else if (h >= 1400) {
+      topPadding = -17;
+    }
+    else if (h >= 1300) {
+      topPadding = -17;
+    }
+    else if (h >= 1200) {
+      topPadding = -7;
+    }
+    else if (h >= 1100) {
+      topPadding = -3;
+    }
+    else if (h >= 1000) {
+      topPadding = -3;
+    }
+    else if (h >= 900) {
+      topPadding = 3;
+    }
+    else if (h >= 800) {
+      topPadding = 10;
+    }
+    else if (h >= 700) {
+      topPadding = 15;
+    }
+    else if (h >= 600) {
+      topPadding = 20;
+    }
+    else if (h >= 500) {
+      topPadding = 27;
+    }
+    else if (h >= 400) {
+      topPadding = 30;
+    }
+    else if (h >= 300) {
+      topPadding = 35;
     }
 
+    let scaleValue = Math.min(w / 800, 2);
+    let moveX = w * static1;
+    let finalY = -h * static2 + topPadding;
+
+    if (w <= 1100) {
+      finalY = 0;
+      h = 0;
+      topPadding = 0;
+      moveX = 0;
+      scaleValue = 1;
+    }
+
+    const numStartScale = Math.max(w / 2, 800);
     tl.fromTo(
       ".num",
-      { scale: 800, y: 800, x: 0, opacity: 1, zIndex: 5 },
+      { scale: numStartScale, y: h, x: 0, opacity: 1, zIndex: 5 },
       { scale: scaleValue, y: 0, x: 0, duration: 2.3, ease: "power3.out" }
     );
 
     tl.fromTo(
       ".word",
-      {
-        x: 120,
-        opacity: 0,
-        scale: scaleValue,
-        zIndex: 1,
-      },
-      {
-        x: 0,
-        opacity: 1,
-        duration: 1,
-        ease: "power3.out",
-      },
+      { x: w * 0.1, opacity: 0, scale: scaleValue, zIndex: 1 },
+      { x: 0, opacity: 1, duration: 1, ease: "power3.out" },
       "-=0.1"
     );
 
     tl.to(
       ".num",
-      {
-        x: moveX,
-        duration: 1,
-        ease: "power2.out",
-      },
+      { x: moveX, duration: 1, ease: "power2.out" },
       "-=1"
     );
 
     tl.to([".num", ".word"], {
       x: 0,
-      y: finalY,
+      y: finalY + h * 0.05,
       scale: 1,
       duration: 1.4,
       ease: "power3.inOut",
@@ -159,21 +130,11 @@ const page = () => {
 
     tl.fromTo(
       ".header-wrapper",
-      { y: -50, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        ease: "power3.out",
-        zIndex: 999999999,
-      }
+      { y: -h * 0.05, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1, ease: "power3.out", zIndex: 999999999 }
     );
 
-    tl.to(".social-links", {
-      right: 0,
-      duration: 1,
-      ease: "power2.inOut",
-    });
+    tl.to(".social-links", { right: 0, duration: 1, ease: "power2.inOut" });
 
     tl.to([".hero-banner .hd", ".hero-banner .banner-hd-mini"], {
       opacity: 1,
@@ -195,482 +156,1144 @@ const page = () => {
       onComplete: () => {
         const overlay = document.querySelector(".overlay");
         if (overlay) overlay.style.display = "none";
-
-        if (videoRef.current) {
-          videoRef.current.play();
-        }
+        if (videoRef.current) videoRef.current.play();
       },
     });
+
+    ScrollTrigger.refresh();
   }, []);
   // LOGO ANIMATION ENDS HERE
 
 
 
   // TEXT SLIDER ANIMATION STARTS HERE (BOTH TRASPARENT AND WHITE SLIDER)
-  useEffect(() => {
-    let xValue = -565;
-    let startVal = "top 500";
-    let endVal = "bottom 400";
-    let scrubVal = 2;
-    const width = window.innerWidth;
-    if (width >= 1900) {
-      xValue = -150;
-      scrubVal = 1.5;
-    } else if (width >= 1600) {
-      xValue = -460;
-      scrubVal = 2.5;
-    } else if (width >= 1500) {
-      xValue = -560;
-      scrubVal = 2;
-    } else if (width >= 1440) {
-      xValue = -620;
-      scrubVal = 2;
-    } else if (width >= 1400) {
-      xValue = -660;
-      scrubVal = 2;
-    } else if (width >= 1366) {
-      xValue = -690;
-      scrubVal = 2;
-      startVal = "top 500";
-      endVal = "bottom 300";
-    } else if (width >= 1280) {
-      xValue = -780;
-      scrubVal = 2;
-      startVal = "top 500";
-      endVal = "bottom 300";
-    } else if (width >= 1200) {
-      xValue = -860;
-      scrubVal = 2;
-      startVal = "top 500";
-      endVal = "bottom 300";
-    } else if (width >= 1024) {
-      xValue = -565;
-      scrubVal = 2;
-    } else if (width >= 991) {
-      xValue = -590;
-      scrubVal = 2;
-      startVal = "top 400";
-      endVal = "bottom 300";
-    } else if (width >= 800) {
-      xValue = -790;
-      scrubVal = 1.7;
-      startVal = "top 320";
-      endVal = "bottom 300";
-    } else if (width >= 767) {
-      xValue = -820;
-      startVal = "top 400";
-      endVal = "bottom 300";
-      scrubVal = 1.5;
-    } else if (width >= 500) {
-      xValue = -770;
-      startVal = "top 400";
-      endVal = "bottom 300";
-      scrubVal = 1.5;
-    } else if (width >= 375) {
-      xValue = -740;
-      startVal = "top 400";
-      endVal = "bottom 300";
-      scrubVal = 2.5;
-    } else {
-      xValue = -250;
-      startVal = "top 90%";
-      endVal = "bottom 10%";
-      scrubVal = 1;
-    }
-    gsap.to(".marquee-mega-wrapper", {
-      x: xValue,
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".marquee-wrapper1",
-        start: startVal,
-        end: endVal,
-        scrub: scrubVal,
-      },
+  useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    const mm = gsap.matchMedia();
+
+    mm.add("(min-width: 1900px)", () => {
+      gsap.to(".marquee-mega-wrapper", {
+        x: -150,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".marquee-wrapper1",
+          start: "top 500",
+          end: "bottom 400",
+          scrub: 1.5,
+        },
+      });
     });
+
+    mm.add("(min-width: 1600px) and (max-width: 1699px)", () => {
+      gsap.to(".marquee-mega-wrapper", {
+        x: -60,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".marquee-wrapper1",
+          start: "top 500",
+          end: "bottom 400",
+          scrub: 2.5,
+        },
+      });
+    });
+
+    mm.add("(min-width: 1500px) and (max-width: 1599px)", () => {
+      gsap.to(".marquee-mega-wrapper", {
+        x: -150,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".marquee-wrapper1",
+          start: "top 500",
+          end: "bottom 400",
+          scrub: 2,
+        },
+      });
+    });
+
+    mm.add("(min-width: 1400px) and (max-width: 1499px)", () => {
+      gsap.to(".marquee-mega-wrapper", {
+        x: -250,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".marquee-wrapper1",
+          start: "top 500",
+          end: "bottom 400",
+          scrub: 2,
+        },
+      });
+    });
+
+    // mm.add("(min-width: 1400px) and (max-width: 1439px)", () => {
+    //   gsap.to(".marquee-mega-wrapper", {
+    //     x: -660,
+    //     ease: "none",
+    //     scrollTrigger: {
+    //       trigger: ".marquee-wrapper1",
+    //       start: "top 500",
+    //       end: "bottom 400",
+    //       scrub: 2,
+    //     },
+    //   });
+    // });
+
+    mm.add("(min-width: 1366px) and (max-width: 1399px)", () => {
+      gsap.to(".marquee-mega-wrapper", {
+        x: -300,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".marquee-wrapper1",
+          start: "top 500",
+          end: "bottom 300",
+          scrub: 2,
+        },
+      });
+    });
+
+    mm.add("(min-width: 1280px) and (max-width: 1365px)", () => {
+      gsap.to(".marquee-mega-wrapper", {
+        x: -370,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".marquee-wrapper1",
+          start: "top 500",
+          end: "bottom 300",
+          scrub: 2,
+        },
+      });
+    });
+
+    mm.add("(min-width: 1200px) and (max-width: 1279px)", () => {
+      gsap.to(".marquee-mega-wrapper", {
+        x: -450,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".marquee-wrapper1",
+          start: "top 500",
+          end: "bottom 300",
+          scrub: 2,
+        },
+      });
+    });
+
+    mm.add("(min-width: 1024px) and (max-width: 1199px)", () => {
+      gsap.to(".marquee-mega-wrapper", {
+        x: -160,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".marquee-wrapper1",
+          start: "top 700",
+          end: "bottom 400",
+          scrub: 2,
+        },
+      });
+    });
+
+    mm.add("(min-width: 991px) and (max-width: 1023px)", () => {
+      gsap.to(".marquee-mega-wrapper", {
+        x: -190,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".marquee-wrapper1",
+          start: "top 700",
+          end: "bottom 300",
+          scrub: 2,
+        },
+      });
+    });
+
+    mm.add("(min-width: 800px) and (max-width: 990px)", () => {
+      gsap.to(".marquee-mega-wrapper", {
+        x: -370,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".marquee-wrapper1",
+          start: "top 800",
+          end: "bottom 300",
+          scrub: 1.7,
+        },
+      });
+    });
+
+    mm.add("(min-width: 767px) and (max-width: 799px)", () => {
+      gsap.to(".marquee-mega-wrapper", {
+        x: -420,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".marquee-wrapper1",
+          start: "top 700",
+          end: "bottom 300",
+          scrub: 1.5,
+        },
+      });
+    });
+
+    mm.add("(min-width: 500px) and (max-width: 766px)", () => {
+      gsap.to(".marquee-mega-wrapper", {
+        x: -700,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".marquee-wrapper1",
+          start: "top 900",
+          end: "bottom 300",
+          scrub: 1.5,
+        },
+      });
+    });
+
+    mm.add("(min-width: 375px) and (max-width: 499px)", () => {
+      gsap.to(".marquee-mega-wrapper", {
+        x: -820,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".marquee-wrapper1",
+          start: "top 900",
+          end: "bottom 300",
+          scrub: 2.5,
+        },
+      });
+    });
+
+    mm.add("(max-width: 374px)", () => {
+      gsap.to(".marquee-mega-wrapper", {
+        x: -250,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".marquee-wrapper1",
+          start: "top 90%",
+          end: "bottom 10%",
+          scrub: 1,
+        },
+      });
+    });
+
+    return () => mm.revert();
   }, []);
 
+
   // TRANSPARENT SLIDER STARTS HERE 
-  useEffect(() => {
+  useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    let xValue = -540;
-    let startPoint = "top 300";
-    let endPoint = "bottom 400";
-    let showMarkers = false;
-    let scrubVal = 2;
-    if (window.innerWidth <= 375) {
-      xValue = -400;
-      startPoint = "top 200";
-      endPoint = "bottom 300";
-      showMarkers = false;
-      scrubVal = 1;
-    } else if (window.innerWidth <= 500) {
-      xValue = -760;
-      startPoint = "bottom 500";
-      endPoint = "bottom 500";
-      showMarkers = false;
-      scrubVal = 1;
-    } else if (window.innerWidth <= 767) {
-      xValue = -820;
-      startPoint = "bottom 800";
-      endPoint = "bottom 800";
-      showMarkers = false;
-      scrubVal = 2;
-    } else if (window.innerWidth <= 991) {
-      xValue = -600;
-      startPoint = "top 200";
-      endPoint = "bottom 300";
-      showMarkers = false;
-      scrubVal = 1;
-    } else if (window.innerWidth <= 1024) {
-      xValue = -560;
-      startPoint = "top 200";
-      endPoint = "bottom 300";
-      showMarkers = false;
-      scrubVal = 1;
-    } else if (window.innerWidth <= 1200) {
-      xValue = -880;
-      startPoint = "top 300";
-      endPoint = "bottom 300";
-      showMarkers = false;
-      scrubVal = 2;
-    } else if (window.innerWidth <= 1280) {
-      xValue = -775;
-      startPoint = "top 300";
-      endPoint = "bottom 300";
-      showMarkers = false;
-      scrubVal = 1;
-    } else if (window.innerWidth <= 1366) {
-      xValue = -700;
-      startPoint = "top 300";
-      endPoint = "bottom 300";
-      showMarkers = false;
-      scrubVal = 1;
-    } else if (window.innerWidth <= 1400) {
-      xValue = -670;
-      startPoint = "top 400";
-      endPoint = "bottom 300";
-      showMarkers = false;
-      scrubVal = 1;
-    } else if (window.innerWidth <= 1440) {
-      xValue = -620;
-      startPoint = "top 420";
-      endPoint = "bottom 300";
-      showMarkers = false;
-      scrubVal = 1;
-    } else if (window.innerWidth <= 1500) {
-      xValue = -560;
-      startPoint = "top 500";
-      endPoint = "bottom 300";
-      showMarkers = false;
-      scrubVal = 1;
-    } else if (window.innerWidth <= 1600) {
-      xValue = -455;
-      startPoint = "top 500";
-      endPoint = "bottom 300";
-      showMarkers = false;
-      scrubVal = 1;
-    } else if (window.innerWidth <= 1900) {
-      xValue = -155;
-      startPoint = "bottom 500";
-      endPoint = "bottom 300";
-      showMarkers = false;
-      scrubVal = 0.6;
-    }
-    gsap.to(".transparent .marquee-mega-wrapper", {
-      x: xValue,
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".why-choose-us",
-        start: startPoint,
-        end: endPoint,
-        scrub: scrubVal,
-        scroller: "body",
-        markers: showMarkers,
-      },
+
+    const mm = gsap.matchMedia();
+
+    // ===== SMALL MOBILE =====
+    mm.add("(max-width: 375px)", () => {
+      gsap.to(".transparent .marquee-mega-wrapper1", {
+        x: -400,
+        ease: "none",
+        scrollTrigger: {
+          trigger: "why-choose-us",
+          start: "top 85%",   // % based start for small screens
+          end: "top 45%",     // % based end
+          scrub: 1,
+          // markers: true,
+        },
+      });
     });
+
+    // ===== MOBILE =====
+    mm.add("(max-width: 376px) and (max-width: 500px)", () => {
+      gsap.to(".transparent .marquee-mega-wrapper1", {
+        x: -760,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".why-choose-us",
+          start: "top 80%",
+          end: "top 40%",
+          scrub: 1,
+        },
+      });
+    });
+
+    mm.add("(max-width: 501px) and (max-width: 767px)", () => {
+      gsap.to(".transparent .marquee-mega-wrapper1", {
+        x: -820,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".why-choose-us",
+          start: "top 75%",
+          end: "top 35%",
+          scrub: 2,
+        },
+      });
+    });
+
+    // ===== TABLET =====
+    mm.add("(max-width: 768px) and (max-width: 991px)", () => {
+      gsap.to(".transparent .marquee-mega-wrapper1", {
+        x: -600,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".why-choose-us",
+          start: "top 300px", // pixel based for larger screens
+          end: "top 100px",
+          scrub: 1,
+        },
+      });
+    });
+
+    mm.add("(max-width: 992px) and (max-width: 1024px)", () => {
+      gsap.to(".transparent .marquee-mega-wrapper1", {
+        x: -560,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".why-choose-us",
+          start: "top 300px",
+          end: "top 100px",
+          scrub: 1,
+        },
+      });
+    });
+
+    // ===== DESKTOP =====
+    mm.add("(max-width: 1025px) and (max-width: 1200px)", () => {
+      gsap.to(".transparent .marquee-mega-wrapper1", {
+        x: -880,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".why-choose-us",
+          start: "top 400px",
+          end: "top 200px",
+          scrub: 2,
+        },
+      });
+    });
+
+    mm.add("(max-width: 1201px) and (max-width: 1280px)", () => {
+      gsap.to(".transparent .marquee-mega-wrapper1", {
+        x: -775,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".why-choose-us",
+          start: "top 400px",
+          end: "top 200px",
+          scrub: 1,
+        },
+      });
+    });
+
+    mm.add("(min-width: 1281px) and (max-width: 1366px)", () => {
+      gsap.to(".transparent .marquee-mega-wrapper1", {
+        x: -100,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".text-slider",
+          start: "top 800px",
+          end: "top 700px",
+          scrub: 1,
+          // markers: true,
+        },
+      });
+    });
+
+    mm.add("(min-width: 1367px) and (max-width: 1440px)", () => {
+      gsap.to(".transparent .marquee-mega-wrapper1", {
+        x: -200,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".text-slider",
+          start: "top 600px",
+          end: "top 800px",
+          scrub: 1,
+          // markers: true,
+        },
+      });
+    });
+
+    mm.add("(min-width: 1441px) and (max-width: 1500px)", () => {
+      gsap.to(".transparent .marquee-mega-wrapper1", {
+        x: -170,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".text-slider",
+          start: "top 350px",
+          end: "top 0px",
+          scrub: 2,
+          // markers: true,
+        },
+      });
+    });
+
+    mm.add("(max-width: 1600px)", () => {
+      gsap.to(".transparent .marquee-mega-wrapper1", {
+        x: -60,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".text-slider",
+          start: "top 550px",
+          end: "top 350px",
+          scrub: 1,
+          // markers: true,
+        },
+      });
+    });
+
+    ScrollTrigger.refresh();
+    return () => mm.revert();
   }, []);
+
+
   // TRANSPARENT SLIDER STARTS HERE 
   // TEXT SLIDER ANIMATION END HERE
 
 
   // ABOUT US IMAGE ANIMATION STARTS HERE
-  useEffect(() => {
-    const w = window.innerWidth;
-    let finalWidth, finalLeft, finalHeight, scrubVal = 2;
-    if (w >= 1900) {
-      finalWidth = "200px";
-      finalLeft = "52%";
-      finalHeight = "622px";
-      scrubVal = 1.5;
-    } else if (w >= 1600) {
-      finalWidth = "200px";
-      finalLeft = "52%";
-      finalHeight = "540px";
-    } else if (w >= 1500) {
-      finalWidth = "200px";
-      finalLeft = "52%";
-      finalHeight = "530px";
-    } else if (w >= 1440) {
-      finalWidth = "200px";
-      finalLeft = "52%";
-      finalHeight = "500px";
-    } else if (w >= 1366) {
-      finalWidth = "180px";
-      finalLeft = "59%";
-      finalHeight = "530px";
-    } else if (w >= 1280) {
-      finalWidth = "160px";
-      finalLeft = "48%";
-      finalHeight = "450px";
-    } else if (w >= 1200) {
-      finalWidth = "160px";
-      finalLeft = "48%";
-      finalHeight = "450px";
-    } else if (w >= 1024) {
-      finalWidth = "160px";
-      finalLeft = "48%";
-      finalHeight = "450px";
-    } else if (w >= 991) {
-      finalWidth = "100%";
-      finalLeft = "0%";
-      finalHeight = "400px";
-    } else if (w >= 500) {
-      finalWidth = "100%";
-      finalLeft = "0%";
-      finalHeight = "400px";
-    } else if (w >= 400) {
-      finalWidth = "100%";
-      finalLeft = "0%";
-      finalHeight = "400px";
-    } else if (w >= 375) {
-      finalWidth = "100%";
-      finalLeft = "0%";
-      finalHeight = "350px";
-    } else {
-      finalWidth = "140px";
-      finalLeft = "45%";
-      finalHeight = "729px";
-    }
-    gsap.to(".img2", {
-      width: finalWidth,
-      right: 0,
-      left: finalLeft,
-      ease: "none",
-      height: finalHeight,
-      scrollTrigger: {
-        trigger: ".about-us",
-        start: "top 400",
-        end: "top 300",
-        scrub: scrubVal,
-      },
+  useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const mm = gsap.matchMedia();
+
+    // ===== MOBILE =====
+    mm.add("(min-width: 320px) and (max-width: 375px)", () => {
+      gsap.to(".img2", {
+        width: "300px",
+        height: "300px",
+        left: "0%",
+        right: 0,
+        ease: "none",
+        force3D: true,
+        scrollTrigger: {
+          trigger: ".about-us",
+          start: "top 80%",
+          end: "top 40%",
+          scrub: 1,
+        },
+      });
     });
+
+    mm.add("(min-width: 375px) and (max-width: 399px)", () => {
+      gsap.to(".img2", {
+        width: "100%",
+        height: "350px",
+        left: "0%",
+        right: 0,
+        ease: "none",
+        force3D: true,
+        scrollTrigger: {
+          trigger: ".about-us",
+          start: "top 80%",
+          end: "top 40%",
+          scrub: 1,
+        },
+      });
+    });
+
+    mm.add("(min-width: 400px) and (max-width: 499px)", () => {
+      gsap.to(".img2", {
+        width: "100%",
+        height: "400px",
+        left: "0%",
+        right: 0,
+        ease: "none",
+        force3D: true,
+        scrollTrigger: {
+          trigger: ".about-us",
+          start: "top 80%",
+          end: "top 40%",
+          scrub: 1,
+        },
+      });
+    });
+
+    mm.add("(min-width: 500px) and (max-width: 990px)", () => {
+      gsap.to(".img2", {
+        width: "100%",
+        height: "400px",
+        left: "0%",
+        right: 0,
+        ease: "none",
+        force3D: true,
+        scrollTrigger: {
+          trigger: ".about-us",
+          start: "top 80%",
+          end: "top 40%",
+          scrub: 1,
+        },
+      });
+    });
+
+    // ===== TABLET =====
+    mm.add("(min-width: 991px) and (max-width: 1023px)", () => {
+      gsap.to(".img2", {
+        width: "100%",
+        height: "400px",
+        left: "0%",
+        right: 0,
+        ease: "none",
+        force3D: true,
+        scrollTrigger: {
+          trigger: ".about-us",
+          start: "top 400",
+          end: "top 300",
+          scrub: 2,
+        },
+      });
+    });
+
+    // ===== DESKTOP =====
+    mm.add("(min-width: 1024px) and (max-width: 1199px)", () => {
+      gsap.to(".img2", {
+        width: "160px",
+        height: "450px",
+        left: "48%",
+        right: 0,
+        ease: "none",
+        force3D: true,
+        scrollTrigger: {
+          trigger: ".about-us",
+          start: "top 400",
+          end: "top 300",
+          scrub: 2,
+        },
+      });
+    });
+
+    mm.add("(min-width: 1200px) and (max-width: 1279px)", () => {
+      gsap.to(".img2", {
+        width: "160px",
+        height: "450px",
+        left: "48%",
+        right: 0,
+        ease: "none",
+        force3D: true,
+        scrollTrigger: {
+          trigger: ".about-us",
+          start: "top 400",
+          end: "top 300",
+          scrub: 2,
+        },
+      });
+    });
+
+    mm.add("(min-width: 1280px) and (max-width: 1365px)", () => {
+      gsap.to(".img2", {
+        width: "160px",
+        height: "450px",
+        left: "48%",
+        right: 0,
+        ease: "none",
+        force3D: true,
+        scrollTrigger: {
+          trigger: ".about-us",
+          start: "top 400",
+          end: "top 300",
+          scrub: 2,
+        },
+      });
+    });
+
+    mm.add("(min-width: 1366px) and (max-width: 1439px)", () => {
+      gsap.to(".img2", {
+        width: "180px",
+        height: "530px",
+        left: "59%",
+        right: 0,
+        ease: "none",
+        force3D: true,
+        scrollTrigger: {
+          trigger: ".about-us",
+          start: "top 400",
+          end: "top 300",
+          scrub: 2,
+        },
+      });
+    });
+
+    mm.add("(min-width: 1440px) and (max-width: 1499px)", () => {
+      gsap.to(".img2", {
+        width: "200px",
+        height: "500px",
+        left: "52%",
+        right: 0,
+        ease: "none",
+        force3D: true,
+        scrollTrigger: {
+          trigger: ".about-us",
+          start: "top 400",
+          end: "top 300",
+          scrub: 2,
+        },
+      });
+    });
+
+    mm.add("(min-width: 1500px) and (max-width: 1599px)", () => {
+      gsap.to(".img2", {
+        width: "200px",
+        height: "530px",
+        left: "52%",
+        right: 0,
+        ease: "none",
+        force3D: true,
+        scrollTrigger: {
+          trigger: ".about-us",
+          start: "top 400",
+          end: "top 300",
+          scrub: 2,
+        },
+      });
+    });
+
+    mm.add("(min-width: 1600px) and (max-width: 1899px)", () => {
+      gsap.to(".img2", {
+        width: "200px",
+        height: "540px",
+        left: "52%",
+        right: 0,
+        ease: "none",
+        force3D: true,
+        scrollTrigger: {
+          trigger: ".about-us",
+          start: "top 400",
+          end: "top 300",
+          scrub: 2,
+        },
+      });
+    });
+
+    mm.add("(min-width: 1900px)", () => {
+      gsap.to(".img2", {
+        width: "200px",
+        height: "622px",
+        left: "52%",
+        right: 0,
+        ease: "none",
+        force3D: true,
+        scrollTrigger: {
+          trigger: ".about-us",
+          start: "top 400",
+          end: "top 300",
+          scrub: 1.5,
+        },
+      });
+    });
+
+    return () => mm.revert();
   }, []);
 
-  useEffect(() => {
-    const w = window.innerWidth;
-    const h = window.innerHeight;
-    let finalWidth, finalHeight, finalTop, finalLeft;
-    if (w >= 1900) {
-      finalWidth = "500px";
-      finalHeight = "520px";
-      finalTop = "16.5%";
-      finalLeft = "15px"
-    } else if (w >= 1600) {
-      finalWidth = "430px";
-      finalHeight = "470px";
-      finalTop = "13%";
-      finalLeft = "45px"
-    } else if (w >= 1500) {
-      finalWidth = "430px";
-      finalHeight = "465px";
-      finalTop = "13%";
-      finalLeft = "45px"
-    } else if (w >= 1440) {
-      finalWidth = "430px";
-      finalHeight = "450px";
-      finalTop = "10%";
-      finalLeft = "45px"
-    } else if (w >= 1366) {
-      finalWidth = "100%";
-      finalHeight = "460px";
-      finalTop = "13.1%";
-    } else if (w >= 1280) {
-      finalWidth = "400px";
-      finalHeight = "450px";
-      finalTop = "0%";
-    } else if (w >= 1200) {
-      finalWidth = "400px";
-      finalHeight = "450px";
-      finalTop = "0%";
-    } else if (w >= 1024) {
-      finalWidth = "400px";
-      finalHeight = "432px";
-      finalTop = "4%";
-    } else if (w >= 991) {
-      finalWidth = "400px";
-      finalHeight = "400px";
-      finalTop = "0%";
-      finalLeft = "18%"
-    } else if (w >= 500) {
-      finalWidth = "400px";
-      finalHeight = "400px";
-      finalTop = "0%";
-      finalLeft = "0%"
-    } else if (w >= 400) {
-      finalWidth = "100%";
-      finalHeight = "100%";
-      finalTop = "0%";
-      finalLeft = "0%"
-    } else if (w >= 375) {
-      finalWidth = "100%";
-      finalHeight = "100%";
-      finalTop = "0%";
-      finalLeft = "0%"
-    } else {
-      finalWidth = "100%";
-      finalHeight = "600px";
-      finalTop = "4%";
-      finalLeft: 0;
-    }
-    gsap.to(".img1", {
-      width: finalWidth,
-      height: finalHeight,
-      left: finalLeft,
-      right: 0,
-      top: finalTop,
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".about-us",
-        start: "top 400",
-        end: "top 300",
-        scrub: 2,
-      },
+
+  useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const mm = gsap.matchMedia();
+
+    // ===== MOBILE =====
+    mm.add("(min-width: 320px) and (max-width: 375px)", () => {
+      gsap.to(".img1", {
+        width: "300px",
+        height: "300px",
+        top: "0%",
+        left: "-5%",
+        force3D: true,
+        scrollTrigger: {
+          trigger: ".about-us",
+          start: "top 80%",
+          end: "top 40%",
+          scrub: 1,
+        },
+      });
     });
+
+    mm.add("(min-width: 375px) and (max-width: 499px)", () => {
+      gsap.to(".img1", {
+        width: "100%",
+        height: "100%",
+        top: "0%",
+        left: "-5%",
+        force3D: true,
+        scrollTrigger: {
+          trigger: ".about-us",
+          start: "top 80%",
+          end: "top 40%",
+          scrub: 1,
+        },
+      });
+    });
+
+    mm.add("(min-width: 500px) and (max-width: 990px)", () => {
+      gsap.to(".img1", {
+        width: "400px",
+        height: "400px",
+        top: "0%",
+        left: "5%",
+        force3D: true,
+        scrollTrigger: {
+          trigger: ".about-us",
+          start: "top 75%",
+          end: "top 35%",
+          scrub: 1.2,
+        },
+      });
+    });
+
+    // ===== TABLET =====
+    mm.add("(min-width: 991px) and (max-width: 1023px)", () => {
+      gsap.to(".img1", {
+        width: "400px",
+        height: "400px",
+        top: "0%",
+        left: "18%",
+        force3D: true,
+        scrollTrigger: {
+          trigger: ".about-us",
+          start: "top 400",
+          end: "top 300",
+          scrub: 2,
+        },
+      });
+    });
+
+    // ===== DESKTOP =====
+    mm.add("(min-width: 1024px) and (max-width: 1279px)", () => {
+      gsap.to(".img1", {
+        width: "400px",
+        height: "432px",
+        top: "4%",
+        force3D: true,
+        scrollTrigger: {
+          trigger: ".about-us",
+          start: "top 400",
+          end: "top 300",
+          scrub: 2,
+        },
+      });
+    });
+
+    mm.add("(min-width: 1280px) and (max-width: 1439px)", () => {
+      gsap.to(".img1", {
+        width: "430px",
+        height: "430px",
+        top: "5%",
+        left: "15px",
+        force3D: true,
+        scrollTrigger: {
+          trigger: ".about-us",
+          start: "top 400",
+          end: "top 300",
+          scrub: 2,
+        },
+      });
+    });
+
+    mm.add("(min-width: 1366px)", () => {
+      gsap.to(".img1", {
+        width: "430px",
+        height: "430px",
+        top: "19%",
+        left: "15px",
+        force3D: true,
+        scrollTrigger: {
+          trigger: ".about-us",
+          start: "top 400",
+          end: "top 300",
+          scrub: 2,
+        },
+      });
+    });
+
+    mm.add("(min-width: 1440px) and (max-width: 1599px)", () => {
+      gsap.to(".img1", {
+        width: "430px",
+        height: "435px",
+        top: "13%",
+        left: "45px",
+        force3D: true,
+        scrollTrigger: {
+          trigger: ".about-us",
+          start: "top 400",
+          end: "top 300",
+          scrub: 2,
+        },
+      });
+    });
+    mm.add("(min-width: 1500px)", () => {
+      gsap.to(".img1", {
+        width: "430px",
+        height: "455px",
+        top: "15%",
+        left: "45px",
+        force3D: true,
+        scrollTrigger: {
+          trigger: ".about-us",
+          start: "top 400",
+          end: "top 300",
+          scrub: 2,
+        },
+      });
+    });
+
+    mm.add("(min-width: 1600px) and (max-width: 1899px)", () => {
+      gsap.to(".img1", {
+        width: "430px",
+        height: "470px",
+        top: "13%",
+        left: "45px",
+        force3D: true,
+        scrollTrigger: {
+          trigger: ".about-us",
+          start: "top 400",
+          end: "top 300",
+          scrub: 1.5,
+        },
+      });
+    });
+
+    mm.add("(min-width: 1900px)", () => {
+      gsap.to(".img1", {
+        width: "500px",
+        height: "520px",
+        top: "16.5%",
+        left: "15px",
+        force3D: true,
+        scrollTrigger: {
+          trigger: ".about-us",
+          start: "top 400",
+          end: "top 300",
+          scrub: 1.5,
+        },
+      });
+    });
+
+    return () => mm.revert();
   }, []);
+
   // ABOUT US IMAGE ANIMATION ENDS HERE
 
   // SERVICES CARDS ANIMATION STARTS HERE
-  useEffect(() => {
-    const w = window.innerWidth;
-    let finalWidth;
-    let finalLeft;
-    let finalScale;
-    if (w >= 1600) {
-      finalWidth = "700px";
-      finalLeft = "2.7%";
-      finalScale = 0.85;
-    } else if (w >= 1500) {
-      finalWidth = "650px";
-      finalLeft = "3.1%";
-      finalScale = 0.82;
-    } else if (w >= 1440) {
-      finalWidth = "650px";
-      finalLeft = "3.2%";
-      finalScale = 0.82;
-    } else if (w >= 1400) {
-      finalWidth = "600px";
-      finalLeft = "3.4%";
-      finalScale = 0.8;
-    } else if (w >= 1366) {
-      finalWidth = "600px";
-      finalLeft = "3.5%";
-      finalScale = 0.8;
-    } else if (w >= 1280) {
-      finalWidth = "550px";
-      finalLeft = "3.3%";
-      finalScale = 0.8;
-    } else if (w >= 1200) {
-      finalWidth = "500px";
-      finalLeft = "3.3%";
-      finalScale = 0.8;
-    } else {
-      finalWidth = "100%";
-      finalLeft = "0%";
-      finalScale = 1;
-    }
-    gsap.fromTo(
-      ".service1",
-      {
-        position: "relative",
-        width: "800px",
-        scale: 0.9,
-        y: 20,
-      },
-      {
-        width: finalWidth,
-        left: finalLeft,
-        scale: finalScale,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: ".services-sec",
-          start: "top 600",
-          end: "top 0",
-          toggleActions: "play reverse play reverse",
-        },
-      }
-    );
+  useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    const mm = gsap.matchMedia();
+
+    // ===== MOBILE =====
+    mm.add("(max-width: 767px)", () => {
+      gsap.fromTo(
+        ".service1",
+        { position: "relative", width: "800px", scale: 0.9, y: 20 },
+        {
+          width: "100%",
+          left: "0%",
+          scale: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".services-sec",
+            start: "top 600px",
+            end: "top 0px",
+            toggleActions: "play reverse play reverse",
+          },
+        }
+      );
+    });
+
+    // ===== 1200-1280 =====
+    mm.add("(min-width: 1200px) and (max-width: 1280px)", () => {
+      gsap.fromTo(
+        ".service1",
+        { position: "relative", width: "800px", scale: 0.9, y: 20 },
+        {
+          width: "500px",
+          left: "3.3%",
+          scale: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".services-sec",
+            start: "top 600px",
+            end: "top 0px",
+            toggleActions: "play reverse play reverse",
+          },
+        }
+      );
+    });
+
+    // ===== 1281-1366 =====
+    mm.add("(min-width: 1281px) and (max-width: 1366px)", () => {
+      gsap.fromTo(
+        ".service1",
+        { position: "relative", width: "800px", scale: 0.9, y: 20 },
+        {
+          width: "550px",
+          left: "3.3%",
+          scale: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".services-sec",
+            start: "top 600px",
+            end: "top 0px",
+            toggleActions: "play reverse play reverse",
+          },
+        }
+      );
+    });
+
+    // ===== 1367-1400 =====
+    mm.add("(min-width: 1367px) and (max-width: 1400px)", () => {
+      gsap.fromTo(
+        ".service1",
+        { position: "relative", width: "800px", scale: 0.9, y: 20 },
+        {
+          width: "600px",
+          left: "3.5%",
+          scale: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".services-sec",
+            start: "top 600px",
+            end: "top 0px",
+            toggleActions: "play reverse play reverse",
+          },
+        }
+      );
+    });
+
+    // ===== 1401-1440 =====
+    mm.add("(min-width: 1401px) and (max-width: 1440px)", () => {
+      gsap.fromTo(
+        ".service1",
+        { position: "relative", width: "800px", scale: 0.9, y: 20 },
+        {
+          width: "650px",
+          left: "3.2%",
+          scale: 0.82,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".services-sec",
+            start: "top 600px",
+            end: "top 0px",
+            toggleActions: "play reverse play reverse",
+          },
+        }
+      );
+    });
+
+    // ===== 1441-1500 =====
+    mm.add("(min-width: 1441px) and (max-width: 1500px)", () => {
+      gsap.fromTo(
+        ".service1",
+        { position: "relative", width: "800px", scale: 0.9, y: 20 },
+        {
+          width: "650px",
+          left: "3.1%",
+          scale: 0.82,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".services-sec",
+            start: "top 600px",
+            end: "top 0px",
+            toggleActions: "play reverse play reverse",
+          },
+        }
+      );
+    });
+
+    // ===== 1501-1600 =====
+    mm.add("(min-width: 1501px) and (max-width: 1600px)", () => {
+      gsap.fromTo(
+        ".service1",
+        { position: "relative", width: "800px", scale: 0.9, y: 20 },
+        {
+          width: "650px",
+          left: "3.1%",
+          scale: 0.82,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".services-sec",
+            start: "top 600px",
+            end: "top 0px",
+            toggleActions: "play reverse play reverse",
+          },
+        }
+      );
+    });
+
+    // ===== 1601+ =====
+    mm.add("(min-width: 1601px)", () => {
+      gsap.fromTo(
+        ".service1",
+        { position: "relative", width: "800px", scale: 0.9, y: 20 },
+        {
+          width: "700px",
+          left: "2.7%",
+          scale: 0.85,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".services-sec",
+            start: "top 600px",
+            end: "top 0px",
+            toggleActions: "play reverse play reverse",
+          },
+        }
+      );
+    });
+
+    return () => mm.revert();
   }, []);
 
-  useEffect(() => {
-    const w = window.innerWidth;
-    let finalWidth;
-    let finalRight;
-    let finalScale;
-    if (w >= 1600) {
-      finalWidth = "700px";
-      finalRight = "2.8%";
-      finalScale = 0.85;
-    } else if (w >= 1500) {
-      finalWidth = "650px";
-      finalRight = "3.3%";
-      finalScale = 0.82;
-    } else if (w >= 1440) {
-      finalWidth = "650px";
-      finalRight = "3.2%";
-      finalScale = 0.82;
-    } else if (w >= 1400) {
-      finalWidth = "600px";
-      finalRight = "3.2%";
-      finalScale = 0.82;
-    } else if (w >= 1366) {
-      finalWidth = "600px";
-      finalRight = "3.5%";
-      finalScale = 0.8;
-    } else if (w >= 1280) {
-      finalWidth = "550px";
-      finalRight = "3.3%";
-      finalScale = 0.8;
-    } else if (w >= 1200) {
-      finalWidth = "500px";
-      finalRight = "3.3%";
-      finalScale = 0.8;
-    } else {
-      finalWidth = "100%";
-      finalRight = "0%";
-      finalScale = 1;
-    }
-    gsap.fromTo(
-      ".service3",
-      {
-        position: "relative",
-        width: "800px",
-        scale: 0.9,
-        y: 20,
-      },
-      {
-        width: finalWidth,
-        right: finalRight,
-        scale: finalScale,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: ".services-sec",
-          start: "top 600",
-          end: "top 0",
-          toggleActions: "play reverse play reverse",
-        },
-      }
-    );
+
+  useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    const mm = gsap.matchMedia();
+
+    // ===== MOBILE =====
+    mm.add("(max-width: 767px)", () => {
+      gsap.fromTo(
+        ".service3",
+        { position: "relative", width: "800px", scale: 0.9, y: 20 },
+        {
+          width: "100%",
+          right: "0%",
+          scale: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".services-sec",
+            start: "top 600px",
+            end: "top 0px",
+            toggleActions: "play reverse play reverse",
+          },
+        }
+      );
+    });
+
+    // ===== 1200-1280 =====
+    mm.add("(min-width: 1200px) and (max-width: 1280px)", () => {
+      gsap.fromTo(
+        ".service3",
+        { position: "relative", width: "800px", scale: 0.9, y: 20 },
+        {
+          width: "500px",
+          right: "3.3%",
+          scale: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".services-sec",
+            start: "top 600px",
+            end: "top 0px",
+            toggleActions: "play reverse play reverse",
+          },
+        }
+      );
+    });
+
+    // ===== 1281-1366 =====
+    mm.add("(min-width: 1281px) and (max-width: 1366px)", () => {
+      gsap.fromTo(
+        ".service3",
+        { position: "relative", width: "800px", scale: 0.9, y: 20 },
+        {
+          width: "550px",
+          right: "3.3%",
+          scale: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".services-sec",
+            start: "top 600px",
+            end: "top 0px",
+            toggleActions: "play reverse play reverse",
+          },
+        }
+      );
+    });
+
+    // ===== 1367-1400 =====
+    mm.add("(min-width: 1367px) and (max-width: 1400px)", () => {
+      gsap.fromTo(
+        ".service3",
+        { position: "relative", width: "800px", scale: 0.9, y: 20 },
+        {
+          width: "600px",
+          right: "3.5%",
+          scale: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".services-sec",
+            start: "top 600px",
+            end: "top 0px",
+            toggleActions: "play reverse play reverse",
+          },
+        }
+      );
+    });
+
+    // ===== 1401-1440 =====
+    mm.add("(min-width: 1401px) and (max-width: 1440px)", () => {
+      gsap.fromTo(
+        ".service3",
+        { position: "relative", width: "800px", scale: 0.9, y: 20 },
+        {
+          width: "600px",
+          right: "3.2%",
+          scale: 0.82,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".services-sec",
+            start: "top 600px",
+            end: "top 0px",
+            toggleActions: "play reverse play reverse",
+          },
+        }
+      );
+    });
+
+    // ===== 1441-1500 =====
+    mm.add("(min-width: 1441px) and (max-width: 1500px)", () => {
+      gsap.fromTo(
+        ".service3",
+        { position: "relative", width: "800px", scale: 0.9, y: 20 },
+        {
+          width: "650px",
+          right: "3.2%",
+          scale: 0.82,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".services-sec",
+            start: "top 600px",
+            end: "top 0px",
+            toggleActions: "play reverse play reverse",
+          },
+        }
+      );
+    });
+
+    // ===== 1501-1600 =====
+    mm.add("(min-width: 1501px) and (max-width: 1600px)", () => {
+      gsap.fromTo(
+        ".service3",
+        { position: "relative", width: "800px", scale: 0.9, y: 20 },
+        {
+          width: "650px",
+          right: "3.3%",
+          scale: 0.82,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".services-sec",
+            start: "top 600px",
+            end: "top 0px",
+            toggleActions: "play reverse play reverse",
+          },
+        }
+      );
+    });
+
+    // ===== 1601+ =====
+    mm.add("(min-width: 1601px)", () => {
+      gsap.fromTo(
+        ".service3",
+        { position: "relative", width: "800px", scale: 0.9, y: 20 },
+        {
+          width: "700px",
+          right: "2.8%",
+          scale: 0.85,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".services-sec",
+            start: "top 600px",
+            end: "top 0px",
+            toggleActions: "play reverse play reverse",
+          },
+        }
+      );
+    });
+
+    return () => mm.revert();
   }, []);
+
   // SERVICES CARDS ANIMATION STARTS HERE
 
 
@@ -678,22 +1301,31 @@ const page = () => {
   useEffect(() => {
     const serviceCards = document.querySelectorAll(".service-card-wrapper");
 
+    // Store listeners so we can remove them later
+    const mouseEnterHandler = (card) => () => card.classList.add("active");
+    const mouseLeaveHandler = (card) => () => card.classList.remove("active");
 
     serviceCards.forEach((card) => {
-      card.addEventListener("mouseenter", () => {
-        card.classList.add("active");
-      });
-      card.addEventListener("mouseleave", () => {
-        card.classList.remove("active");
-      });
+      const enter = mouseEnterHandler(card);
+      const leave = mouseLeaveHandler(card);
+      card.__enterHandler = enter; // store reference
+      card.__leaveHandler = leave;
+      card.addEventListener("mouseenter", enter);
+      card.addEventListener("mouseleave", leave);
     });
+
+    ScrollTrigger.refresh(); // Refresh ScrollTrigger after DOM changes
+
     return () => {
       serviceCards.forEach((card) => {
-        card.removeEventListener("mouseenter", () => { });
-        card.removeEventListener("mouseleave", () => { });
+        card.removeEventListener("mouseenter", card.__enterHandler);
+        card.removeEventListener("mouseleave", card.__leaveHandler);
+        delete card.__enterHandler;
+        delete card.__leaveHandler;
       });
     };
   }, []);
+
   // HOVER ANIMATION ON CARDS
 
   return (
@@ -710,7 +1342,7 @@ const page = () => {
       <section className='hero-banner'>
         <div className="container">
           <h3 className='banner-hd-mini hd'>Reliable Systems, Zero Downtime</h3>
-          <h1 className='banner-hd hd'>Stay Online, Scale Cleanly, and Remove Capital Strain.</h1>
+          <h1 className='banner-hd hd'>High-Availability by Design. Scalable by Default. Revenue-Protected</h1>
         </div>
       </section>
       <section className='video-banner main-page'>
@@ -723,9 +1355,17 @@ const page = () => {
             </div>
           </div>
           <div className="row justify-content-center">
-            <div className="col-lg-8">
+            <div className="col-lg-8 spc-col">
               <p className='banner-para para-up'>Your systems can't afford to go down. We architect, deploy, and monitor infrastructure that stays operational when competitors are scrambling to recover. HAaaS and DRaaS services are designed for organizations that demand reliability, not excuses.</p>
-              <Secondarybtn />
+              <div className="btn-wrapper" onClick={()=> router.push("/contact-us")}>
+                <div className="btn-fill"></div>
+                <div className="btn-content">
+                  <div className="left-icon">
+                    <Image src={rightArrow} className='img-fluid' alt="" />
+                  </div>
+                  <div className="btn-text">GET STARTED</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -734,7 +1374,15 @@ const page = () => {
           <div className="col-lg-6">
             <h3 className='banner-hd-mini hd'>Our Name Comes from “Five Nines”</h3>
             <p className='banner-para'>Which means 99.999% Uptime is Our Standard. Five 9 is your enterprise technology partner, delivering senior expertise and execution power on demand without hiring additional full-time staff.</p>
-            <Secondarybtn />
+            <div className="btn-wrapper" onClick={()=> router.push("/our-services")}>
+              <div className="btn-fill"></div>
+              <div className="btn-content">
+                <div className="left-icon">
+                  <Image src={rightArrow} className='img-fluid' alt="" />
+                </div>
+                <div className="btn-text">GET STARTED</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -743,7 +1391,7 @@ const page = () => {
           <div className="row align-items-center">
             <div className="col-lg-7">
               <h3 className='banner-hd-mini'>About Us</h3>
-              <h1 className='banner-hd'>More Than 35 Markets Protected Across the United States</h1>
+              <h1 className='banner-hd'>More Than 35 Markets Protected Across the Globe</h1>
               <p className="banner-para">Since 2014, Five 9 has focused on keeping business systems operational. Our name refers to the industry gold standard of 99.999% availability. That number represents what we deliver every single day. We build the technology foundations that companies rely on to serve their customers, process transactions, and run their operations.on: </p>
               <div className="btn-wrapper">
                 <div className="btn-fill"></div>
@@ -851,7 +1499,15 @@ const page = () => {
               <h3 className='banner-hd-mini'>Why Choose Five9?</h3>
               <h1 className='banner-hd'>We Extend Your Capabilities, So You Don’t Hire More</h1>
               <p className='banner-para'>Over the past decade, we've fixed the problems that destroy businesses. System crashes. Security breaches. Failed recovery attempts. We know what breaks and learned how to prevent it. Our managed technology execution approach implements, monitor, and optimize them as your needs change.</p>
-              <Secondarybtn />
+              <div className="btn-wrapper" onClick={() => router.push("/our-capabilities")}>
+                <div className="btn-fill"></div>
+                <div className="btn-content">
+                  <div className="left-icon">
+                    <Image src={rightArrow} className='img-fluid' alt="" />
+                  </div>
+                  <div className="btn-text">GET STARTED</div>
+                </div>
+              </div>
             </div>
             <div className="col-lg-5">
               <div className="row justify-content-between choose-row1">
@@ -859,7 +1515,7 @@ const page = () => {
                   <div className="choose-wrapper">
                     <Image src={chooseImage1} className='img-fluid' alt="" />
                     <h3 className='banner-hd-mini'>35+</h3>
-                    <p className="banner-para">Markets in U.S.</p>
+                    <p className="banner-para">Global Markets</p>
                   </div>
                 </div>
                 <div className="col-lg-6 text-center">
@@ -882,7 +1538,7 @@ const page = () => {
                   <div className="choose-wrapper">
                     <Image src={chooseImage4} className='img-fluid' alt="" />
                     <h3 className='banner-hd-mini'>15+</h3>
-                    <p className="banner-para">Products</p>
+                    <p className="banner-para">Services</p>
                   </div>
                 </div>
               </div>
@@ -891,19 +1547,21 @@ const page = () => {
         </div>
       </section>
       <section className="capabilities-sec">
-        <section className='marquee-slider transparent'>
-          <div className="marquee-mega-wrapper">
-            <p className='marquee-wrapper1 m-0'>
+        {/* <section className='transparent'>
+          <div className="marquee-mega-wrapper1">
+            <p className='marquee-wrapper1 text-slider m-0'>
               EMPOWERING RESILIENCE,
             </p>
-            <p className='marquee-wrapper1 m-0'>
+            <p className='marquee-wrapper1 text-slider m-0'>
               ANYTIME,
             </p>
-            <p className='marquee-wrapper1 m-0'>
+            <p className='marquee-wrapper1 text-slider m-0'>
               ANYWHERE
             </p>
           </div>
-        </section>
+        </section> */}
+
+        <RailSec />
         <div className="container text-center">
           <h3 className='banner-hd-mini'>Five Specialized Domains. One Reliable Partner.</h3>
           <p className='banner-para'>Five 9 delivers technology capability as a service across five specialized areas. Each domain has dedicated experts focusing entirely on their field. You get deep knowledge from specialists, and advices from generalists.</p>

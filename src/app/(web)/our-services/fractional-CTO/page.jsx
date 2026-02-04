@@ -9,92 +9,96 @@ import Header2 from '@/components/Header2';
 import AOS from 'aos';
 import SocialLinks from '@/components/SocialLinks';
 import rightArrow from "@/app/(web)/assets/images/right-arrow.png"
+import { useRouter } from 'next/navigation';
+
 const page = () => {
+    const router = useRouter();
+
     useEffect(() => {
-        gsap.registerPlugin(ScrollTrigger);
+       gsap.registerPlugin(ScrollTrigger);
         let xValue = -540;
-        let startPoint = "top 300";
+        let startPoint = "top 400";
         let endPoint = "bottom 400";
         let showMarkers = false;
         if (window.innerWidth <= 375) {
-            xValue = -1205;
+            xValue = -800;
             startPoint = "top 200";
             endPoint = "bottom 300";
             showMarkers = false; // ✅ 1200 par ON
         }
         else if (window.innerWidth <= 500) {
-            xValue = -1100;
+            xValue = -700;
+            startPoint = "top 200";
+            endPoint = "bottom 10";
+            showMarkers = false; // ✅ 1200 par ON
+        }
+        else if (window.innerWidth <= 767) {
+            xValue = -400;
             startPoint = "top 200";
             endPoint = "bottom 300";
             showMarkers = false; // ✅ 1200 par ON
         }
-        else if (window.innerWidth <= 767) {
-            xValue = -820;
-            startPoint = "top 300";
-            endPoint = "bottom 300";
-            showMarkers = false; // ✅ 1200 par ON
-        }
         else if (window.innerWidth <= 991) {
-            xValue = -600;
+            xValue = -200;
             startPoint = "top 200";
             endPoint = "bottom 300";
             showMarkers = false; // ✅ 1200 par ON
         }
         else if (window.innerWidth <= 1024) {
-            xValue = -560;
+            xValue = -160;
             startPoint = "top 200";
             endPoint = "bottom 300";
             showMarkers = false; // ✅ 1200 par ON
         }
         else if (window.innerWidth <= 1200) {
-            xValue = -880;
-            startPoint = "top 300";
+            xValue = -450;
+            startPoint = "top 400";
             endPoint = "bottom 300";
             showMarkers = false; // ✅ 1200 par ON
         }
         else if (window.innerWidth <= 1280) {
-            xValue = -775;
-            startPoint = "top 300";
-            endPoint = "bottom 300";
+            xValue = -380;
+            startPoint = "top 400";
+            endPoint = "bottom 100";
             showMarkers = false;
         }
         else if (window.innerWidth <= 1366) {
-            xValue = -700;
-            startPoint = "top 300";
-            endPoint = "bottom 300";
+            xValue = -310;
+            startPoint = "top 400";
+            endPoint = "bottom 100";
             showMarkers = false;
         }
         else if (window.innerWidth <= 1400) {
-            xValue = -670;
+            xValue = -270;
             startPoint = "top 400";
             endPoint = "bottom 300";
             showMarkers = false;
         }
         else if (window.innerWidth <= 1440) {
-            xValue = -620;
-            startPoint = "top 420";
+            xValue = -220;
+            startPoint = "top 400";
             endPoint = "bottom 300";
             showMarkers = false;
         }
         else if (window.innerWidth <= 1500) {
-            xValue = -570;
-            startPoint = "top 430";
+            xValue = -150;
+            startPoint = "top 400";
             endPoint = "bottom 300";
             showMarkers = false;
         }
         else if (window.innerWidth <= 1600) {
-            xValue = -455;
-            startPoint = "top 430";
+            xValue = -60;
+            startPoint = "top 400";
             endPoint = "bottom 300";
             showMarkers = false;
         }
 
 
-        gsap.to(".transparent .marquee-mega-wrapper", {
+        gsap.to(".slider-black .marquee-mega-wrapper", {
             x: xValue,
             ease: "none",
             scrollTrigger: {
-                trigger: ".transparent .marquee-wrapper1",
+                trigger: ".slider-black .marquee-wrapper1",
                 start: startPoint,
                 end: endPoint,
                 scrub: 2,
@@ -127,7 +131,7 @@ const page = () => {
                     </div>
                 </div>
             </section>
-            <section className='marquee-slider transparent'>
+            <section className='marquee-slider slider-black services-slider'>
                 <div className="marquee-mega-wrapper">
                     <p className='marquee-wrapper1 m-0'>
                         EMPOWERING RESILIENCE,
@@ -140,18 +144,9 @@ const page = () => {
                     </p>
                 </div>
             </section>
-            <div className="container text-center mt-5 service-btn-max" data-aos="fade-right" data-aos-delay="500">
+            <div className="container text-center mt-5 " data-aos="fade-right" data-aos-delay="500">
                 <h3 className='banner-hd-mini hd'>Get CTO-level guidance without hiring a CTO.</h3>
                 <p className='banner-para text-center mt-3 mb-5'>Most growing companies need experienced <span className="red">technology leadership</span> but can't justify a $300,000+ executive salary. Our <span className="red">fractional CTO services</span> provide part-time technology leadership that scales with your needs. You get strategic direction, technical oversight, and vendor management from executives who've built systems at companies across industries.</p>
-                <div className="btn-wrapper">
-                    <div className="btn-fill"></div>
-                    <div className="btn-content">
-                        <div className="left-icon">
-                            <Image src={rightArrow} className='img-fluid' alt="" />
-                        </div>
-                        <div className="btn-text">SCHEDULE CTO CONSULTATION</div>
-                    </div>
-                </div>
             </div>
             <section className="bridge-strategy">
                 <div className="container">
@@ -168,7 +163,7 @@ const page = () => {
                     </div>
                     <div className="row mt-5 align-items-center">
                         <div className="col-lg-6" data-aos="fade-left" data-aos-delay="2000">
-                            <Image src={functionalImage1} className='img-fluid' alt="" />
+                            <Image src={functionalImage1} className='img-fluid startegy-video' alt="" />
                         </div>
                         <div className="col-lg-6" data-aos="fade-left" data-aos-delay="2500">
                             {/* <p className="banner-para">We step in as a trusted partner, helping you define a clear technology roadmap, prioritize investments, and make informed decisions across cloud, infrastructure, cybersecurity, applications, data, and AI. Whether you're navigating a major transformation, stabilizing an environment, preparing for scale, or simply need experienced leadership to guide your team, we provide the clarity and direction to move your organization forward with confidence. </p> */}
@@ -301,7 +296,7 @@ const page = () => {
                         <div className="col-lg-12">
                             <h4>Schedule a Free Consultation</h4>
                             <p className="banner-para">Tell us about your technology challenges and business goals. We'll discuss whether fractional CTO services make sense for your situation and what engagement model fits your needs.</p>
-                            <div className="btn-wrapper">
+                            <div className="btn-wrapper" onClick={() => router.push("/contact-us")}>
                                 <div className="btn-fill"></div>
                                 <div className="btn-content">
                                     <div className="left-icon">

@@ -43,12 +43,12 @@ const Footer = () => {
                             <Link href={"/"}>
                                 <Image src={footerLogo} className='img-fluid' alt="" />
                             </Link>
-                            {/* <p className='footer-para para-width'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation </p> */}
+                            <p className='footer-para para-width'>Delivering 99.999% uptime for businesses since 2014. Expert IT solutions that keep your systems reliable, scalable, and secure.</p>
                             <div className="reach-mega-wrapper">
                                 <div className="reach-wrapper">
                                     <h4>Reach Us</h4>
                                     <a href="tel:+18778534839" className='footer-para'>+1 877 853 4839</a>
-                                    <a href="mailto:hello@five9.com" className='footer-para'>hello@five9.com</a>
+                                    <a href="mailto:info@five9.co" className='footer-para'>info@five9.co</a>
                                 </div>
                                 <div className="reach-wrapper">
                                     <h4>Contact Us</h4>
