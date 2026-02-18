@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
 import AIChatbot from "@/components/AIChatbot";
 import Script from "next/script";   // 👈 IMPORTANT
+import "../../../public/dmca-validator.html";
 
 export const metadata = {
   title: "Five 9",
