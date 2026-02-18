@@ -8,7 +8,7 @@ import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
 import AIChatbot from "@/components/AIChatbot";
 import Script from "next/script";   // 👈 IMPORTANT
-import "../../../public/dmca-validator.html";
+// import "../../../public/dmca-validator.html";
 
 export const metadata = {
   title: "Five 9",
@@ -16,7 +16,18 @@ export const metadata = {
   icons: {
     icon: "/images/footer-logo.png",
   },
+  other: {
+    "dmca-site-verification": "bW9wb1VkVXRqWVNyeDdNR2RLbmxUUT090",
+  },
 };
+
+// export const metadata = {
+//   title: "Five 9",
+//   description: "Five 9 - Landing Page",
+//   icons: {
+//     icon: "/images/footer-logo.png",
+//   },
+// };
 
 export default function RootLayout({ children }) {
   return (
