@@ -7,6 +7,8 @@ import "@/app/chatbot.css";
 import Footer from "@/components/Footer";
 import CustomCursor from "@/components/CustomCursor";
 import AIChatbot from "@/components/AIChatbot";
+import Script from "next/script";   // 👈 IMPORTANT
+
 export const metadata = {
   title: "Five 9",
   description: "Five 9 - Landing Page",
@@ -18,10 +20,23 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-9W3BMQ0C6N"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date());
-       gtag('config', 'G-9W3BMQ0C6N'); </script>
- 
       <body>
+        
+        {/* Google Analytics Script */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-9W3BMQ0C6N"
+          strategy="afterInteractive"
+        />
+
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-9W3BMQ0C6N');
+          `}
+        </Script>
+
         <CustomCursor />
         {children}
         <Footer />
