@@ -21,6 +21,7 @@ const SidebarDashboard = ({ sidebarOpen, closeSidebar }) => {
         "/dashboard/capabilities-page",
         "/dashboard/Blog-page",
         "/dashboard/Contact-page",
+        "/dashboard/solo-sections",
         "/dashboard/footer",
     ]
 
@@ -114,11 +115,11 @@ const SidebarDashboard = ({ sidebarOpen, closeSidebar }) => {
 
                                     {isServicesOpen && (
                                         <ul className="nested-dropdown p-0">
-                                            <li><Link href="/dashboard/services-page/services-inner-pages/strategy-page" className="drop-link">1-strategy</Link></li>
-                                            <li><Link href="/dashboard/services-page/services-inner-pages/fractional-cto-page" className="drop-link">2-fractional-CTO</Link></li>
-                                            <li><Link href="/dashboard/services-page/services-inner-pages/digital-services-page" className="drop-link">3-digital-services</Link></li>
-                                            <li><Link href="/dashboard/services-page/services-inner-pages/consulting-page" className="drop-link">4-consulting</Link></li>
-                                            <li><Link href="/dashboard/services-page/services-inner-pages/advisory-page" className="drop-link">5-advisory</Link></li>
+                                            <li><Link href="/dashboard/services-page/services-inner-pages/strategy" className="drop-link">1- strategy</Link></li>
+                                            <li><Link href="/dashboard/services-page/services-inner-pages/fractional_cto" className="drop-link">2- fractional-CTO</Link></li>
+                                            <li><Link href="/dashboard/services-page/services-inner-pages/digital_services" className="drop-link">3- digital-services</Link></li>
+                                            <li><Link href="/dashboard/services-page/services-inner-pages/consulting" className="drop-link">4- consulting</Link></li>
+                                            <li><Link href="/dashboard/services-page/services-inner-pages/advisory" className="drop-link">5- advisory</Link></li>
                                         </ul>
                                     )}
                                 </li>
@@ -144,13 +145,14 @@ const SidebarDashboard = ({ sidebarOpen, closeSidebar }) => {
 
                                     {isCapabilitiesOpen && (
                                         <ul className="nested-dropdown p-0">
-                                            <li><Link href="/dashboard/capabilities-page/capabilities-inner-pages/transformation-page" className="drop-link">1-Transformation</Link></li>
-                                            <li><Link href="/dashboard/capabilities-page/capabilities-inner-pages/artificial-intelligence-page" className="drop-link">2-Artificial Intelligence</Link></li>
-                                            <li><Link href="/dashboard/capabilities-page/capabilities-inner-pages/security-page" className="drop-link">3-Security</Link></li>
-                                            <li><Link href="/dashboard/capabilities-page/capabilities-inner-pages/infrastructure-page" className="drop-link">4-Infrastructure</Link></li>
-                                            <li><Link href="/dashboard/capabilities-page/capabilities-inner-pages/applications-page" className="drop-link">5-Applications</Link></li>
-                                            <li><Link href="/dashboard/capabilities-page/capabilities-inner-pages/data-engineering-page" className="drop-link">6-Data Engineering</Link></li>
-                                            <li><Link href="/dashboard/capabilities-page/capabilities-inner-pages/cloud-page" className="drop-link">7-Cloud</Link></li>
+                                            <li><Link href="/dashboard/capabilities-page/capabilities-inner-pages/transformation" className="drop-link">1- Transformation</Link></li>
+                                            <li><Link href="/dashboard/capabilities-page/capabilities-inner-pages/artificial_intelligence" className="drop-link">2- Artificial Intelligence</Link></li>
+                                            <li><Link href="/dashboard/capabilities-page/capabilities-inner-pages/security" className="drop-link">3- Security</Link></li>
+                                            <li><Link href="/dashboard/capabilities-page/capabilities-inner-pages/infrastructure" className="drop-link">4- Infrastructure</Link></li>
+                                            <li><Link href="/dashboard/capabilities-page/capabilities-inner-pages/applications" className="drop-link">5- Applications</Link></li>
+                                            <li><Link href="/dashboard/capabilities-page/capabilities-inner-pages/enterprise_applications" className="drop-link">6- Enterprise-Applications</Link></li>
+                                            <li><Link href="/dashboard/capabilities-page/capabilities-inner-pages/data_engineering" className="drop-link">7- Data Engineering</Link></li>
+                                            <li><Link href="/dashboard/capabilities-page/capabilities-inner-pages/cloud" className="drop-link">8- Cloud</Link></li>
                                         </ul>
                                     )}
                                 </li>
@@ -164,6 +166,26 @@ const SidebarDashboard = ({ sidebarOpen, closeSidebar }) => {
                                 <li>
                                     <Link href="/dashboard/Contact-page" className={`drop-link ${pathname === "/dashboard/Contact-page" ? "active" : ""}`}>
                                         Contact us page
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/dashboard/solo-sections" className={`drop-link ${pathname === "/dashboard/solo-sections" ? "active" : ""}`}>
+                                        Solo Sections
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/dashboard/privacy-policy" className={`drop-link ${pathname === "/dashboard/privacy-policy" ? "active" : ""}`}>
+                                        Privacy Policy
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/dashboard/terms-condition" className={`drop-link ${pathname === "/dashboard/terms-condition" ? "active" : ""}`}>
+                                        Terms And Conditions
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/dashboard/faqs" className={`drop-link ${pathname === "/dashboard/faqs" ? "active" : ""}`}>
+                                        FAQ's
                                     </Link>
                                 </li>
 
