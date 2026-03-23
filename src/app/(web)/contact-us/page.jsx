@@ -46,10 +46,10 @@ const page = () => {
     }, []);
     useEffect(() => {
         const handlers = [];
+import { contactSEO } from "@/data/seo";
+import ContactClient from "./ContactClient";
 
-        document.querySelectorAll(".faq-wrapper").forEach((faq) => {
-            const handler = () => {
-                const parent = faq.parentElement;
+export const metadata = contactSEO;
 
                 document.querySelectorAll(".faq-item.active").forEach((item) => {
                     if (item !== parent) item.classList.remove("active");
@@ -279,6 +279,6 @@ const page = () => {
             {/* <Newsletter /> */}
         </>
     )
+export default function Page() {
+  return <ContactClient />;
 }
-
-export default page

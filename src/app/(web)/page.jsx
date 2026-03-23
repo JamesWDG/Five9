@@ -1,49 +1,7 @@
-"use client";
-import React, { useEffect, useLayoutEffect, useRef } from 'react'
-import Image from 'next/image'
-import MarqueeSlider from '@/components/MarqueeSlider'
-import { montserrat } from '../../../public/font/font.js'
-import InsightSlider from '@/components/InsightSlider';
-import { gsap } from "gsap";
-import rightArrow from "../../../public/images/right-arrow.png"
-import aboutBannerimg1 from "../../../public/images/about-banner-front.png"
-import aboutBannerimg2 from "../../../public/images/about-banner-back.png"
-import chooseImage1 from "../../../public/images/choose-sec-img1.png"
-import chooseImage2 from "../../../public/images/choose-sec-img2.png"
-import chooseImage3 from "../../../public/images/choose-sec-img3.png"
-import chooseImage4 from "../../../public/images/choose-sec-img4.png"
-import capableImage1 from "../../../public/images/capable-img-1.png"
-import capableImage2 from "../../../public/images/capable-img-2.png"
-import capableImage3 from "../../../public/images/capable-img-3.png"
-import capableImage4 from "../../../public/images/capable-img-4.png"
-import capableImage5 from "../../../public/images/capable-img-5.png"
-import SocialLinks from '@/components/SocialLinks';
-import Secondarybtn from '@/components/Secondarybtn';
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Header from '@/components/Header.jsx';
-import { useRouter } from 'next/navigation';
-import ServicesSection from '@/components/ServicesSection.jsx';
-import Testimonials from '@/components/Testimonials.jsx';
-import Link from 'next/link.js';
-import RailSec from '@/components/RailSec.jsx';
-const page = () => {
-  const router = useRouter();
-  const logoRef = useRef(null);
-  const videoRef = useRef(null);
-  gsap.registerPlugin(ScrollTrigger);
-  useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    ScrollTrigger.refresh();
-  }, []);
+import { homeSEO } from "@/data/seo";
+import HomeClient from "./HomeClient";
 
-  // LOGO ANIMATION STARTS HERE
-  useEffect(() => {
-    const tl = gsap.timeline();
-    const static1 = 0.05;
-    const static2 = 0.50;
-    const w = window.innerWidth;
-    let h = window.visualViewport?.height || window.innerHeight;
-    let topPadding = 40;
+export const metadata = homeSEO;
 
     if (h == 1600) {
       topPadding = -27;
@@ -1608,6 +1566,6 @@ const page = () => {
       <Testimonials />
     </>
   )
+export default function Page() {
+  return <HomeClient />;
 }
-
-export default page
