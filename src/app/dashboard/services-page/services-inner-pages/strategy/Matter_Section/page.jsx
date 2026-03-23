@@ -1,0 +1,148 @@
+"use client"
+import React, { useEffect, useState } from "react"
+import { useRouter, useSearchParams } from "next/navigation"
+import DashboardHeader from "@/components/DashboardHeader"
+import TextEditor from "@/components/TiptapEditor"
+const page = () => {
+    const router = useRouter();
+    const searchParams = useSearchParams("id");
+    const id = searchParams.get('id');
+    const [parentHeading, setParanetHeading] = useState("");
+    const [heading1, setheading1] = useState("");
+    const [heading2, setheading2] = useState("");
+    const [heading3, setheading3] = useState("");
+    const [heading4, setheading4] = useState("");
+    const [heading5, setheading5] = useState("");
+    const [heading6, setheading6] = useState("");
+    const [value1, setvalue1] = useState("");
+    const [value2, setvalue2] = useState("");
+    const [value3, setvalue3] = useState("");
+    const [value4, setvalue4] = useState("");
+    const [value5, setvalue5] = useState(null);
+    const [value6, setvalue6] = useState(null);
+    const fetchAboutBannerSecData = async () => {
+        try {
+            console.log("id ya hay ====>>>", id);
+            const response = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/dashboard/cms/our-services-page/strategy-page/Matter_Section/${id}`)
+            const result = await response.json();
+            const data = result.data;
+            setParanetHeading(data.type);
+            setheading1(data.metas[0].meta_key)
+            setvalue1(data.metas[0].meta_value)
+            
+            setheading2(data.metas[1].meta_key)
+            setvalue2(data.metas[1].meta_value)
+
+            setheading3(data.metas[2].meta_key)
+            setvalue3(data.metas[2].meta_value)
+
+            setheading4(data.metas[3].meta_key)
+            setvalue4(data.metas[3].meta_value)
+
+            setheading5(data.metas[4].meta_key)
+            setvalue5(data.metas[4].meta_value)
+            console.log(data.metas[4].meta_key);
+            
+            setheading6(data.metas[5].meta_key)
+            setvalue6(data.metas[5].meta_value)
+            console.log("data for about page  ====>>>", result);
+
+        } catch (error) {
+            console.error("FETCH ERROR:", error);
+            Swal.fire({
+                toast: true,
+                icon: "error",
+                title: "Oops!",
+                text: "Cannot fetch About Banner Data.",
+            });
+        }
+        finally {
+
+        }
+    }
+
+
+    const updateAboutBannerSecData = async () => {
+        try {
+            const formData = new FormData()
+            formData.append("heading", value1)
+            formData.append("para_1", value2)
+            formData.append("para_2", value3)
+            formData.append("para_3", value4)
+            formData.append("file_1", value5)
+            formData.append("file_2", value6)
+
+            const response = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/dashboard/cms/our-services-page/strategy-page/Matter_Section/${id}`,
+                {
+                    method: "POST",
+                    body: formData,
+                })
+            const result = await response.json()
+            console.log("update result of headings======>>>>> :", result)
+            if (!result.status) {
+                console.log("Validation errors:", result.errors)
+            }
+        } catch (error) {
+            console.log("Update error ===>>>", error)
+        }
+        finally {
+
+        }
+    }
+    useEffect(() => {
+        fetchAboutBannerSecData();
+    }, [])
+    return (
+        <>
+            <DashboardHeader />
+            <section className="dashboard-inner-pages">
+                <div className="container-fluid">
+                    <h2 className="db-hd">Edit {parentHeading} {heading1} , {heading2} , {heading3}</h2>
+                    <form action="" className="db-form" encType="multipart/form-data" onSubmit={(e) => {
+                        e.preventDefault()
+                        updateAboutBannerSecData()
+                    }}>
+                        <label htmlFor="heading" className="db-hd-mini">edit {heading1}</label>
+                        <input type="text" name="heading" id="heading" defaultValue={value1} onChange={(e) => setvalue1(e.target.value)} className="header-input" placeholder="Mini Heading Goes here" />
+
+                        <label htmlFor="para_1" className="db-hd-mini mt-5">edit {heading2}</label>
+                        <TextEditor
+                            value={value2}
+                            onChange={(content) => setvalue2(content)}
+                        />
+                        <label htmlFor="para_2" className="db-hd-mini mt-5">edit {heading3}</label>
+                        <TextEditor
+                            value={value3}
+                            onChange={(content) => setvalue3(content)}
+                        />
+                        <label htmlFor="para_3" className="db-hd-mini mt-5">edit {heading4}</label>
+                        <TextEditor
+                            value={value4}
+                            onChange={(content) => setvalue4(content)}
+                        />
+
+                        <label htmlFor="file_1" className="db-hd-mini mt-5">edit {heading5}</label>
+                        <input type="file" name="file_1" id="file_1" defaultValue={value5} onChange={(e) => setvalue5(e.target.files[0])} className="header-input" placeholder="Mini Heading Goes here" />
+                        
+                        <label htmlFor="file_2" className="db-hd-mini mt-5">edit {heading6}</label>
+                        <input type="file" name="file_2" id="file_2" defaultValue={value6} onChange={(e) => setvalue6(e.target.files[0])} className="header-input" placeholder="Mini Heading Goes here" />
+                        
+                        <div className="btn-wrapper">
+                            <button className="form-submit-btn update-btn" type="submit">
+                                Update
+                            </button>
+                            <button className="form-submit-btn back-btn-func" type="button" onClick={() => router.back()}>Back</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </>
+    )
+}
+
+export default page
+
+{/* <label htmlFor="header-logo" className="db-hd-mini mt-5">Edit P_1ara</label>
+                        <textarea type="text" name="header-logo" id="header-logo" className="header-input" placeholder="Para Goes here" accept="image/*" />
+                        <label htmlFor="header-logo" className="db-hd-mini mt-5">Edit Button Text</label>
+                        <input type="text" name="header-logo" id="header-logo" className="header-input" placeholder="Enter Text" accept="image/*" /> */}
