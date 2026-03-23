@@ -1,10 +1,35 @@
-import React from 'react'
+"use client"
+
+import React, { useState } from 'react'
 import Image from 'next/image'
 import footerLogo from '@/app/(web)/assets/images/footer-logo.png'
 import dmcaImage from '../../public/images/dmca-img.jpg'
 import Link from 'next/link'
 
 const Footer = () => {
+    const [email, setEmail] = useState('');
+    const [name, setName] = useState('');
+    const [message, setMessage] = useState('');
+    const newsLetterSubmit = async (e) => {
+        try {
+            e.preventDefault();
+            const payload = new FormData();
+            payload.append('name',name);
+            payload.append('email',email);
+            payload.append('message',message);
+            const response = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/newsletter/store`, {
+                method: "POST",
+                body: payload
+            })
+
+            const result = await response.json();
+            console.log(result);
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return (
         <>
             <footer className='footer'>
@@ -15,20 +40,20 @@ const Footer = () => {
                                 <h2>SPOT TECHNOLOGY VULNERABILITIES FAST? FIND OUT IN 30 MINUTES.</h2>
                             </div>
                             <div className="col-lg-5">
-                                <form action="" className='newsletter-form'>
+                                <form onSubmit={(e) => newsLetterSubmit(e)} action="" className='newsletter-form'>
                                     <div className="row justify-content-between">
                                         <div className="col-lg-6">
-                                            <input type="text" name="" id="" placeholder='Name' />
+                                            <input onChange={(e)=> setName(e?.target?.value)} required type="text" name="" id="" placeholder='Name' />
                                         </div>
                                         <div className="col-lg-6">
-                                            <input type="email" name="" id="" placeholder='Email' />
+                                            <input onChange={(e) => setEmail(e?.target?.value)} required type="email" name="" id="" placeholder='Email' />
                                         </div>
                                     </div>
                                     <div className="row justify-content-between mt-4">
                                         <div className="col-lg-12">
                                             <div className='message-area'>
-                                                <input type="text" name="" id="" placeholder='Message' />
-                                                <button className='message-btn'><i className='fa-solid fa-arrow-right'></i></button>
+                                                <input onChange={(e) => setMessage(e?.target?.value)} required type="text" name="" id="" placeholder='Message' />
+                                                <button type='submit' className='message-btn'><i className='fa-solid fa-arrow-right'></i></button>
                                             </div>
                                         </div>
                                     </div>

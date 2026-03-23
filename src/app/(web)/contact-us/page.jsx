@@ -1,6 +1,6 @@
 "use client";
 import Link from 'next/link'
-import React, { use, useEffect } from 'react'
+import React, { use, useEffect, useState } from 'react'
 import rightArrow from "@/app/(web)/assets/images/right-arrow.png"
 import Image from 'next/image'
 import { montserrat } from '@/app/font/font'
@@ -9,6 +9,34 @@ import Header2 from '@/components/Header2'
 import AOS from 'aos';
 import SocialLinks from '@/components/SocialLinks';
 const page = () => {
+
+    const [name, setName] = useState('');
+    const [companyName, setCompanyName] = useState('');
+    const [email, setEmail] = useState('');
+    const [phoneNumber, setphoneNumber] = useState('')
+    const [message, setMessage] = useState('');
+    const ContactUsSubmit = async (e) => {
+        try {
+            e.preventDefault();
+            const payload = new FormData();
+            payload.append('name', name);
+            payload.append('company_name', companyName);
+            payload.append('email', email);
+            payload.append('phone', phoneNumber);
+            payload.append('message', message);
+            const response = await fetch(`${process.env.NEXT_PUBLIC_APP_URL}/contact-us/store`, {
+                method: "POST",
+                body: payload
+            })
+
+            const result = await response.json();
+            console.log(result);
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     useEffect(() => {
         AOS.init({
             duration: 1000,
@@ -40,6 +68,8 @@ const page = () => {
             });
         };
     }, []);
+
+
     const faqSections = [
         {
             items: [
@@ -156,32 +186,32 @@ const page = () => {
                             </ul>
                         </div>
                         <div className="col-lg-7" data-aos="fade-left" data-aos-delay="1000">
-                            <form action="" className='contact-form'>
+                            <form action="" className='contact-form' onSubmit={(e) => { ContactUsSubmit(e) }}>
                                 <div className="contact-form-wrapper">
                                     <div className="row justify-content-between">
                                         <div className="col-lg-6">
                                             <label className='banner-para' htmlFor="">Your Name</label>
-                                            <input type="text" name="" id="" placeholder='Your Name' />
+                                            <input type="text" name="name" onChange={(e) => setName(e.target.value)} id="" required placeholder='Your Name' />
                                         </div>
                                         <div className="col-lg-6">
                                             <label className='banner-para' htmlFor="">Company Name</label>
-                                            <input type="text" name="" id="" placeholder='Company Name' />
+                                            <input type="text" name="company_name" id="" required onChange={(e) => setCompanyName(e.target.value)} placeholder='Company Name' />
                                         </div>
                                     </div>
                                     <div className="row justify-content-between mt-5">
                                         <div className="col-lg-6">
                                             <label className='banner-para' htmlFor="">Email</label>
-                                            <input type="mail" name="" id="" placeholder='Email' />
+                                            <input type="mail" name="email" id="" required onChange={(e) => setEmail(e.target.value)} placeholder='Email' />
                                         </div>
                                         <div className="col-lg-6">
                                             <label className='banner-para' htmlFor="">Phone</label>
-                                            <input type="number" name="" id="" placeholder='Phone Number' />
+                                            <input type="number" name="phone" required onChange={(e) => setphoneNumber(e.target.value)} id="" placeholder='Phone Number' />
                                         </div>
                                     </div>
                                     <div className="row justify-content-between mt-5">
                                         <div className="col-lg-12">
                                             <label className='banner-para' htmlFor="">What do you need help with?</label>
-                                            <textarea name="" id="" placeholder='(Tell us about your technology challenges, goals, or questions. The more specific you are, the better we can help.)'></textarea>
+                                            <textarea name="message" id="" required onChange={(e) => setMessage(e.target.value)} placeholder='(Tell us about your technology challenges, goals, or questions. The more specific you are, the better we can help.)'></textarea>
                                         </div>
                                     </div>
                                     <button className='btn-wrapper mt-5' type='submit'>

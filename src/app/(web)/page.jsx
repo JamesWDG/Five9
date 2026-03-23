@@ -1357,7 +1357,7 @@ const page = () => {
           <div className="row justify-content-center">
             <div className="col-lg-8 spc-col">
               <p className='banner-para para-up'>Your systems can't afford to go down. We architect, deploy, and monitor infrastructure that stays operational when competitors are scrambling to recover. HAaaS and DRaaS services are designed for organizations that demand reliability, not excuses.</p>
-              <div className="btn-wrapper" onClick={()=> router.push("/contact-us")}>
+              <div className="btn-wrapper" onClick={() => router.push("/contact-us")}>
                 <div className="btn-fill"></div>
                 <div className="btn-content">
                   <div className="left-icon">
@@ -1374,7 +1374,7 @@ const page = () => {
           <div className="col-lg-6">
             <h3 className='banner-hd-mini hd'>Our Name Comes from “Five Nines”</h3>
             <p className='banner-para'>Which means 99.999% Uptime is Our Standard. Five 9 is your enterprise technology partner, delivering senior expertise and execution power on demand without hiring additional full-time staff.</p>
-            <div className="btn-wrapper" onClick={()=> router.push("/our-services")}>
+            <div className="btn-wrapper" onClick={() => router.push("/our-services")}>
               <div className="btn-fill"></div>
               <div className="btn-content">
                 <div className="left-icon">
