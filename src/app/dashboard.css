@@ -183,12 +183,11 @@ header {
 }
 
 .side-nav::-webkit-scrollbar {
-  display: none;
+  width: 5px;
 }
 
 .side-nav::-webkit-scrollbar-thumb {
   background: black;
-  display: none;
 }
 
 .main-dashboard-area {
@@ -560,11 +559,6 @@ span.not-drop-det:nth-last-child(1) {
   outline: none;
 }
 
-textarea.header-input {
-  resize: none;
-  height: 150px;
-}
-
 .contact-detials input:focus,
 .header-input:focus,
 .contact-detials textarea:focus {
@@ -631,32 +625,4 @@ textarea.header-input {
 .drop-link-btn {
   width: 65px !important;
   padding: 10px 17px 10px 0 !important;
-}
-
-.file {
-  cursor: pointer !important;
-}
-
-.text-editor {
-  background-color: var(--white);
-  border-radius: 15px;
-  border: none;
-  height: 200px;
-  box-shadow: 0 2px 4px #0e1e251f, 0 2px 16px #0e1e2552;
-}
-
-.ql-container {
-  height: 140px !important;
-  font-size: 15px !important;
-}
-
-.ql-toolbar.ql-snow {
-  border: none !important;
-  border-bottom: 1px solid var(--main-color) !important;
-  padding: 15px 35px !important;
-}
-
-.ql-snow,
-.ql-snow * {
-  border: none !important;
 }
